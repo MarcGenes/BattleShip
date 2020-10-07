@@ -5,6 +5,15 @@ package BattleShip;
 
 public class Juego {
     
+	Tablero tab1jug1 = new Tablero();
+	Tablero tab2jug1 = new Tablero();
+	
+	Tablero tab1jug2 = new Tablero();
+	Tablero tab2jug2 = new Tablero();
+	
+	
+	Jugador jug1 = new Jugador();
+	Jugador jug2 = new Jugador();
 	
 	
 	
