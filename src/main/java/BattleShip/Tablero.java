@@ -8,7 +8,7 @@ public class Tablero {
 		
 	public Tablero (int s) {
 		size=s;
-		tab = new boolean[size][size];
+		tab= new boolean[size][size];
 	}
 	
 	public int getSize() {

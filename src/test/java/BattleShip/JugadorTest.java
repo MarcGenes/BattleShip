@@ -9,6 +9,9 @@ public class JugadorTest {
 	@Test
 	public void test() {
 		
+		Jugador j1 = new Jugador("juan");
+		assertEquals(j1.getNombre(),"juan");
+		
 	}
 
 }
