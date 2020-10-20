@@ -46,10 +46,11 @@ public class Tablero {
 			
 		}
 	}
-	public void AñadirBarco(int x, int y, String pos) 
+	public void addBarco(int x, int y, String pos) 
 	{
 		
 		// TODO
+		
 	}
 	
 }

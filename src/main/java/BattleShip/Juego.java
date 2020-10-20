@@ -71,7 +71,7 @@ public class Juego {
 	  
 	  System.out.println("PARA INTRODUCIR LOS BARCOS, INTRODUCE LOS NUMEROS DE LAS COORDENADAS DE LA PRIMERA CASILLA   \n"
 	  		+ " DONDE QUIERAS COLOCAR EL BARCO Y LA POSICION VERTICAL U HORIZANTAL ( V o H ), \n"
-	  		+ " FIJATE BIEN DONDE COLOCAS EL BARCO YA QUE LA POSICION SIEMPRE SERÁ HACIA LA DERECHA O HACIA ABAJO.");
+	  		+ " FIJATE BIEN DONDE COLOCAS EL BARCO YA QUE LA POSICION SIEMPRE SERÃ� HACIA LA DERECHA O HACIA ABAJO.");
 	  
 
 	  int numB = 0;
@@ -86,7 +86,7 @@ public class Juego {
 		  int y = reader.nextInt();
 		  System.out.println("Posicion del Barco ( V o H ) ");
 		  String pos = reader.next();
-		  tab.AñadirBarco(x, y, pos);
+		  tab.addBarco(x, y, pos);
 		  
 		  numB++;
 		  
