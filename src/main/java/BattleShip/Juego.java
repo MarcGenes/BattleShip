@@ -76,10 +76,10 @@ public class Juego {
 
 	  int numB = 0;
 	  Scanner reader = new Scanner(System.in);
-	  while(numB<20 ) 
+	  while(numB<8 ) 
 	  {
 		  System.out.println("Introduce las coordenadas i la posicion del barco"+ (numB+1));
-		  System.out.println(barcos.get(0).getTipo());
+		  System.out.println(barcos.get(numB).getTipo());
 		  System.out.println("coordenada X: ");
 		  int x = reader.nextInt();
 		  System.out.println("coordenada Y: ");

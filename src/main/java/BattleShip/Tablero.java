@@ -17,8 +17,7 @@ public class Tablero {
 	
 	public void llenarTablero(int posI, int posJ, int valor) 
 	{
-		tab[posI][posJ]=valor;
-		
+		tab[posI][posJ]=valor;	
 	}
 
 	public void mostrarTablero() 
@@ -49,8 +48,12 @@ public class Tablero {
 	public void addBarco(int x, int y, String pos) 
 	{
 		
-		// TODO
+		
 		
 	}
+	 public boolean ComprobarTablero(){
+		  return false;
+	  }
+	 
 	
 }
