@@ -81,26 +81,31 @@ public class Tablero {
 	}
 	public boolean addBarco(int x, int y, String pos, int medida) 
 	{
+		System.out.println(x+" "+y);
 		boolean barcoOK = true;
 		if(x<0 || y<0 || x>7 || y>7){barcoOK = false;}
 		if(barcoOK==true && valorPosicion(x,y)==BARCO){barcoOK = false;} 
-		if(barcoOK==true && pos=="H" && x+(medida-1)>8){barcoOK = false;}
-		if(barcoOK==true && pos=="V" && y+(medida-1)>8){barcoOK = false;}
+		if(barcoOK==true && pos=="H" && x+(medida-1)>7){barcoOK = false;}
+		if(barcoOK==true && pos=="V" && y+(medida-1)>7){barcoOK = false;}
 		if(barcoOK==true && casillaOcupada(x,y,pos, medida)==true){barcoOK= false;}
 		if(barcoOK == true ){
 			if( pos.equals("V")){
-				for(int i=x; i<x+medida; i++){
-					llenarTablero(i,y,BARCO);
+				for(int i=y; i<=y+(medida-1); i++){
+					llenarTablero(i,x,BARCO);
 				}
 			}
 			if( pos.equals("H")){
-				for(int j=y; j<y+medida; j++){
-					llenarTablero(x,j,BARCO);
+				for(int j=x; j<=x+(medida-1);j++) 
+				{
+					llenarTablero(y,j,BARCO);
 				}
+					
+				
 			}
+			
 		}
 		return barcoOK;
-	}
+}
 	
 	
 	 public boolean ComprobarTablero(){
