@@ -7,9 +7,6 @@ import java.util.*;
 public class Juego {
 	
 
- final int  AGUA = 0;
- final int  BARCO = 1;
- 
  Tablero tab = new Tablero(8);
  ArrayList<Barco> barcos = new ArrayList<Barco>();
 	  
@@ -38,20 +35,6 @@ public class Juego {
   
   
  }
-  public void LlenarTableroAgua() {
-	  
-	  
-	  
-	  for(int i =0; i<tab.getSize();i++)
-	  {
-		  for(int j=0; j<tab.getSize();j++) 
-		  {
-			  tab.llenarTablero(i, j, AGUA);
-			  
-		  }
-		  
-	  }
-  }
   
  
   
@@ -75,8 +58,9 @@ public class Juego {
 	  
 
 	  int numB = 0;
+	  boolean barcoOK = true;
 	  Scanner reader = new Scanner(System.in);
-	  while(numB<8 ) 
+	  while(numB<8) 
 	  {
 		  System.out.println("Introduce las coordenadas i la posicion del barco"+ (numB+1));
 		  System.out.println(barcos.get(numB).getTipo());
@@ -86,12 +70,13 @@ public class Juego {
 		  int y = reader.nextInt();
 		  System.out.println("Posicion del Barco ( V o H ) ");
 		  String pos = reader.next();
-		  tab.addBarco(x, y, pos);
-		  
-		  numB++;
-		  
-		  //TODO
-		  
+		  barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida());
+		  if(barcoOK == false){
+			 System.out.println("Las coordenadas y la posición del barco incorrectas, sale de los limites del Tablero");
+		  }else{
+			  numB++;
+		  }
+		  tab.mostrarTablero();
 	  }
 	  
 	  

@@ -7,10 +7,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class JuegoTest {
-
+		Juego juego = new Juego();
 		@Test
 		public void menuTest() {
-			Juego juego = new Juego();
+			
 			//int resultado = juego.menu();
 			//assertTrue(resultado==1);
 			
