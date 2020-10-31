@@ -62,21 +62,39 @@ public class Tablero {
 	
 	public boolean casillaOcupada(int x, int y, String pos, int medida){
 		boolean ocupada = false;
+		System.out.println(valorPosicion(3,2));
+		System.out.println(valorPosicion(3,3));
+		System.out.println(valorPosicion(3,4));
+		
+		// PROBLEMA el metodo valor posicion devuelve mal la posicion,
+		// porque devuelve las Y,X, i nosotros entramos la X i augmentamos la Y en vertical.
+		// ejemplo, si se quiere ver valor de X=4 Y=3, se deberia poner valorPosicion(3,4)
+		// i si quisieramos saber el valor de X=4, Y=2, valor posicoon(2,4),
+		// hay que mirar bien como hacerlo para que cuadre todo.
 		if(pos=="V"){
-			int conty = y+1;
+			System.out.println("entra");
+			int conty = y;
 			while(conty<medida && ocupada==false){
-				if(valorPosicion(x,conty)==BARCO){ocupada=true;}
+				System.out.println("entraB");
+			
+				System.out.println(x+ " "+conty);
+				
+				if(valorPosicion(x,conty)==BARCO)
+				{ocupada=true;}
+				
 				else{ conty ++;
 				}
+				System.out.println(ocupada);
 			}
 		}if(pos=="H"){
-			int contx = x+1;
+			int contx = x;
 			while(contx<medida && ocupada==false){
 				if(valorPosicion(contx,y)==BARCO){ocupada=true;}
 				else{ contx ++;
 				}
 			}
 		}
+		
 		return ocupada;
 	}
 	public boolean addBarco(int x, int y, String pos, int medida) 
