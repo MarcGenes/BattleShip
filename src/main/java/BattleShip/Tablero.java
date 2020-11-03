@@ -57,24 +57,22 @@ public class Tablero {
 	}
 	
 	public int valorPosicion(int x, int y){
-		return tab[x][y];
+		return tab[y][x];
 	}
 	
 	public boolean casillaOcupada(int x, int y, String pos, int medida){
 		boolean ocupada = false;
-		System.out.println(valorPosicion(3,2));
-		System.out.println(valorPosicion(3,3));
-		System.out.println(valorPosicion(3,4));
+	
+	
 		
-		// PROBLEMA el metodo valor posicion devuelve mal la posicion,
-		// porque devuelve las Y,X, i nosotros entramos la X i augmentamos la Y en vertical.
-		// ejemplo, si se quiere ver valor de X=4 Y=3, se deberia poner valorPosicion(3,4)
-		// i si quisieramos saber el valor de X=4, Y=2, valor posicoon(2,4),
-		// hay que mirar bien como hacerlo para que cuadre todo.
+		//TODO solucionar problema de conflicot entre vertical i vertical numeros
+		// de y pequeños
 		if(pos=="V"){
 			System.out.println("entra");
 			int conty = y;
-			while(conty<medida && ocupada==false){
+			
+			while(conty<medida+1 && ocupada==false){
+				
 				System.out.println("entraB");
 			
 				System.out.println(x+ " "+conty);
@@ -86,12 +84,24 @@ public class Tablero {
 				}
 				System.out.println(ocupada);
 			}
-		}if(pos=="H"){
+		}if(pos=="H"){ 
 			int contx = x;
-			while(contx<medida && ocupada==false){
-				if(valorPosicion(contx,y)==BARCO){ocupada=true;}
-				else{ contx ++;
+			System.out.println(contx+ " "+y);
+			System.out.println("entraH");
+			System.out.println(valorPosicion(6,5));
+			while(contx< x+medida && ocupada==false){
+				System.out.println("entraB");
+				
+				System.out.println(contx+ " "+y);
+				
+				if(valorPosicion(contx,y)==BARCO)
+				{
+					ocupada=true;
 				}
+				else{ 
+					contx ++;
+				}
+				System.out.println(ocupada);
 			}
 		}
 		
