@@ -65,34 +65,26 @@ public class Tablero {
 	
 	
 		
-		//TODO solucionar problema de conflicot entre vertical i vertical numeros
-		// de y pequeños
 		if(pos=="V"){
-			System.out.println("entra");
+		
 			int conty = y;
 			
-			while(conty<medida+1 && ocupada==false){
+			while(conty< y+medida && ocupada==false){
 				
-				System.out.println("entraB");
 			
-				System.out.println(x+ " "+conty);
 				
 				if(valorPosicion(x,conty)==BARCO)
 				{ocupada=true;}
 				
 				else{ conty ++;
 				}
-				System.out.println(ocupada);
+				
 			}
 		}if(pos=="H"){ 
 			int contx = x;
-			System.out.println(contx+ " "+y);
-			System.out.println("entraH");
-			System.out.println(valorPosicion(6,5));
+		
 			while(contx< x+medida && ocupada==false){
-				System.out.println("entraB");
-				
-				System.out.println(contx+ " "+y);
+		
 				
 				if(valorPosicion(contx,y)==BARCO)
 				{
@@ -101,7 +93,7 @@ public class Tablero {
 				else{ 
 					contx ++;
 				}
-				System.out.println(ocupada);
+				
 			}
 		}
 		

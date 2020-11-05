@@ -36,15 +36,21 @@ public class TableroTest {
 		assertTrue(t1.addBarco(2, 3, "V", 1)==true);
 		t1.mostrarTablero();
 		//FALSE
-		t1.LlenarTableroAgua();
+		//comprobaciones varias: alguna casilla Horizontal(no Ok) encima de alguna horizontal(ok),
+		//alguna casilla vertical(no ok)
+		//encima de alguna casilla vertical(ok), primera casilla encima de casilla ocupada.
+		//primera casilla fuera de tablero. casillas de una sola pieza encima de casillas ocupadas i fuera tableo.
+		//numeros de casilla negativos, o superiores a medida de tablero
+		
+		t1.LlenarTableroAgua();// reiniciar tablero.
+		
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(5, 0, "H", 4 )==false);
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(2, 6, "V", 4 )==false);
 		t1.mostrarTablero();
-		assertTrue(t1.addBarco(2, 3, "H", 3)== true);
+		assertTrue(t1.addBarco(2, 3, "H", 3)== true); // barco ok
 		t1.mostrarTablero();
-		//comprovacion que al poner un vertical, encima de un horizontal, no funciona
 		assertTrue(t1.addBarco(4, 1, "V", 3)==false);
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(2, 3, "V", 2)== false);
@@ -55,21 +61,23 @@ public class TableroTest {
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(9, 9, "H", 1 )==false);
 		t1.mostrarTablero();
-		assertTrue(t1.addBarco(6, 3, "V", 3 )==true);
+		assertTrue(t1.addBarco(6, 3, "V", 3 )==true); //barco ok
 		t1.mostrarTablero();
-		//comprobacion de poner un horizontal, encima de un vertical ya puesto, no funciona
+		assertTrue(t1.addBarco(5, 0, "H", 3 )==true); //barco ok
+		t1.mostrarTablero();
+		assertTrue(t1.addBarco(3, 0, "H", 3 )==false);
+		t1.mostrarTablero();
 		assertTrue(t1.addBarco(4, 5, "H", 3 )==false);
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(-1, 0, "H", 2 )==false);
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(3, -1, "H", 4 )==false);
 		t1.mostrarTablero();
-		assertTrue(t1.addBarco(3, 7, "H", 2 )==true);
+		assertTrue(t1.addBarco(3, 7, "H", 2 )==true); //barco ok
 		t1.mostrarTablero();
-		//comrpovacion de poner un horizontal, encima de otro horizontal
 		assertTrue(t1.addBarco(2, 7, "H", 2 )==false);
 		t1.mostrarTablero();
-		assertTrue(t1.addBarco(1, 3, "V", 2 )==true);
+		assertTrue(t1.addBarco(1, 3, "V", 2 )==true); // barco ok
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(1, 2, "V", 2 )==false);
 		
