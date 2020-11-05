@@ -99,7 +99,7 @@ public class Tablero {
 		
 		return ocupada;
 	}
-	public boolean addBarco(int x, int y, String pos, int medida) 
+	public boolean addBarco(int x, int y, String pos, int medida, Barco bar) 
 	{
 		System.out.println(x+" "+y);
 		boolean barcoOK = true;
@@ -112,12 +112,14 @@ public class Tablero {
 			if( pos.equals("V")){
 				for(int i=y; i<=y+(medida-1); i++){
 					llenarTablero(i,x,BARCO);
+					bar.añadirCoordenadas(x,i);
 				}
 			}
 			if( pos.equals("H")){
 				for(int j=x; j<=x+(medida-1);j++) 
 				{
 					llenarTablero(y,j,BARCO);
+					bar.añadirCoordenadas(j,y);
 				}
 					
 				
@@ -125,7 +127,21 @@ public class Tablero {
 			
 		}
 		return barcoOK;
-}
+	}
+	public boolean comprobarTirada(int x, int y)
+	{
+		boolean tocado;
+		int pos = valorPosicion(x,y);
+		if(pos == AGUA)
+		{
+			tocado= false;
+		}
+		else {
+			
+			tocado=true;
+		}
+		return tocado;
+	}
 	
 	
 	 public boolean ComprobarTablero(){

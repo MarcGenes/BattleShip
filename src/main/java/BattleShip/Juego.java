@@ -55,7 +55,7 @@ public class Juego {
 		  int y = reader.nextInt();
 		  System.out.println("Posicion del Barco ( V o H ) ");
 		  String pos = reader.next();
-		  barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida());
+		  barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida(),barcos.get(numB));
 		  //guardar posicion en tablero de los barcos asi sabremos si estan tocados o hundidos
 		  
 		  if(barcoOK == false){
@@ -75,6 +75,66 @@ public class Juego {
   }
   public void Jugar()  // metodo con el bucle de jugar.
   {
+	  int tiradas = 0;
+	  int totalTiradas= 45;
+	  Scanner reader2 = new Scanner(System.in);
+	  
+	  while(tiradas<totalTiradas) 
+	  {
+		  System.out.println("EMPIEZA LA TIRADA NUMERO"+ (tiradas+1) + " DE "+totalTiradas);
+		  System.out.println("INTRODUCE LAS COORDENADAS QUE QUIERAS DISPARAR!");
+		  System.out.println("introduce X");
+		  int x = reader2.nextInt();
+		  System.out.println("introduce Y");
+		  int y = reader2.nextInt();
+		  if((x > 7 || y > 7) || (x<0 || y<0)) 
+		  {
+			  System.out.println("ERROR: LAS COORDENADAS DEBEN ESTAR DENTRO DEL TABLERO");
+		  }
+		  else {
+			  
+			  boolean tocado = tab.comprobarTirada(x,y);
+			  if(tocado == false) 
+			  {
+				  System.out.println("AGUA!!! NO HAS TOCADO NINGUN BARCO!");
+				  
+			  }else {
+				  
+				  int cont=0;
+				  boolean encontrado= false;
+				  while(cont< barcos.size() && encontrado ==false)
+				  {
+					  encontrado = barcos.get(cont).comprobarCoordenadas(x,y);
+					  if(encontrado== true)
+					  {
+						  if(barcos.get(cont).estaHundido() == false) 
+						  {
+							  System.out.println(barcos.get(cont).getTipo()+" TOCADO!!!");
+							  
+						  }else {
+							  System.out.println(barcos.get(cont).getTipo()+" HUNDIDO!!!");
+							  
+						  }
+						 
+
+					  }
+					  cont++;
+						    
+				  }
+			  
+			  
+			  
+			  tiradas++;
+		  }
+		
+			  
+			  
+			  
+			  
+		  }
+		  
+		  
+	  }
 	  
 	  
   }
