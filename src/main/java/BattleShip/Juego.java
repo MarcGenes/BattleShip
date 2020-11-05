@@ -68,7 +68,7 @@ public class Juego {
 		
 		  tab.mostrarTablero();
 	  }
-	  
+	  reader.close();
 	  
 	  
 	  
@@ -123,13 +123,9 @@ public class Juego {
 				  }
 			  
 			  
-			  
-			  tiradas++;
-		  }
-		
-			  
-			  
-			  
+			  }
+
+			   tiradas++;
 			  
 		  }
 		  
