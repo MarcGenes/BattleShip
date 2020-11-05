@@ -40,21 +40,6 @@ public class Juego {
   
   public void ColocarBarcos() 
   {
-	  System.out.println("Hay 4 tipos de Barcos");
-	  System.out.println(" 2 Portaaviones que ocupan 4 casillas cada uno ");
-	  System.out.println(" 2 Destructores que ocupan 3 casillas cada uno");
-	  System.out.println(" 2 Fragats que ocupan 2 casillas cada uno");
-	  System.out.println(" 2 submarinos que ocupan 1 casilla cada uno \n");
-	  System.out.println(" Por lo tanto 8 barcos en total que ocupan 20 casillas\n");
-	  
-	  System.out.println(" ESTE ES TU TABLERO \n");
-	  System.out.println(" LOS 0 SON AGUA Y LOS 1 SERAN BARCOS \n");
-	  tab.mostrarTablero();
-	  System.out.print("\n");
-	  
-	  System.out.println("PARA INTRODUCIR LOS BARCOS, INTRODUCE LOS NUMEROS DE LAS COORDENADAS DE LA PRIMERA CASILLA   \n"
-	  		+ "DONDE QUIERAS COLOCAR EL BARCO Y LA POSICION VERTICAL U HORIZANTAL ( V o H ), \n"
-	  		+ "FIJATE BIEN DONDE COLOCAS EL BARCO YA QUE LA POSICION SIEMPRE SERAN HACIA LA DERECHA(H) O HACIA ABAJO(V).");
 	  
 
 	  int numB = 0;
@@ -71,9 +56,12 @@ public class Juego {
 		  System.out.println("Posicion del Barco ( V o H ) ");
 		  String pos = reader.next();
 		  barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida());
+		  //guardar posicion en tablero de los barcos asi sabremos si estan tocados o hundidos
+		  
 		  if(barcoOK == false){
 			 System.out.println("Las coordenadas o la posicion del barco incorrectas, sale de los limites del Tablero o posicion ocupada");
 		  }else{
+			  
 			  numB++;
 		  }
 		 
@@ -82,6 +70,11 @@ public class Juego {
 	  }
 	  
 	  
+	  
+	  
+  }
+  public void Jugar()  // metodo con el bucle de jugar.
+  {
 	  
 	  
   }
