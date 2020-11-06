@@ -9,7 +9,7 @@ public class Juego {
 
  Tablero tab = new Tablero(8);
  ArrayList<Barco> barcos = new ArrayList<Barco>();
-	  
+
 	
  public Juego()	{
   
@@ -35,10 +35,14 @@ public class Juego {
   
   
  }
+ public int ComprobarListaBarcos() 
+ {
+	 return barcos.size();
+ }
   
  
   
-  public void ColocarBarcos() 
+  public void ColocarBarcos() //falta test de esto
   {
 	  
 
@@ -47,8 +51,9 @@ public class Juego {
 	  Scanner reader = new Scanner(System.in);
 	  while(numB<8) 
 	  {
+		
 		  System.out.println("Introduce las coordenadas y la posicion del barco"+ (numB+1));
-		  System.out.println(barcos.get(numB).getTipo());
+		  System.out.println(barcos.get(numB).getTipo()+" Medida: "+barcos.get(numB).getMedida() );
 		  System.out.println("Coordenada X: ");
 		  int x = reader.nextInt();
 		  System.out.println("Coordenada Y: ");
@@ -68,12 +73,13 @@ public class Juego {
 		
 		  tab.mostrarTablero();
 	  }
+	 
 	  reader.close();
 	  
 	  
 	  
   }
-  public void Jugar()  // metodo con el bucle de jugar.
+  public void Jugar(Jugador jug)  // falta test de esto
   {
 	  int tiradas = 0;
 	  int totalTiradas= 45;
@@ -81,15 +87,15 @@ public class Juego {
 	  
 	  while(tiradas<totalTiradas) 
 	  {
-		  System.out.println("EMPIEZA LA TIRADA NUMERO"+ (tiradas+1) + " DE "+totalTiradas);
+		  System.out.println("EMPIEZA LA TIRADA NUMEROvb"+ (tiradas+1) + " DE "+totalTiradas);
 		  System.out.println("INTRODUCE LAS COORDENADAS QUE QUIERAS DISPARAR!");
-		  System.out.println("introduce X");
+		  System.out.println("introduce X:");
 		  int x = reader2.nextInt();
-		  System.out.println("introduce Y");
+		  System.out.println("introduce Y:");
 		  int y = reader2.nextInt();
 		  if((x > 7 || y > 7) || (x<0 || y<0)) 
 		  {
-			  System.out.println("ERROR: LAS COORDENADAS DEBEN ESTAR DENTRO DEL TABLERO");
+			  System.out.println("ERROR!! LAS COORDENADAS DEBEN ESTAR DENTRO DEL TABLERO");
 		  }
 		  else {
 			  
@@ -110,9 +116,12 @@ public class Juego {
 						  if(barcos.get(cont).estaHundido() == false) 
 						  {
 							  System.out.println(barcos.get(cont).getTipo()+" TOCADO!!!");
+							  jug.sumarTocados();
 							  
 						  }else {
 							  System.out.println(barcos.get(cont).getTipo()+" HUNDIDO!!!");
+							  jug.sumarHundidos();
+
 							  
 						  }
 						 
@@ -131,12 +140,69 @@ public class Juego {
 		  
 		  
 	  }
+	  if(jug.numeroHundidos()==8) 
+	  {
+		  jug.ponerGanador(true);
+	  }
 	  
-	  
+	  reader2.close();
   }
   
   
   
+  public void DeterminarGanador(Jugador jug1, Jugador jug2) 
+  {
+	  if(jug1.esGanador()==true && jug2.esGanador()==false) 
+	  {
+		  System.out.println("EL GANADOR ES EL JUGADOR "+jug1.retNombre()+"!!!!!!");
+		  
+	  }
+	  if(jug2.esGanador()==true && jug1.esGanador()==false) 
+	  { System.out.println("EL GANADOR ES EL  "+jug2.retNombre()+"!!!!!");}
+	  
+	  if(jug2.esGanador()==true && jug1.esGanador()==true)
+	  { 
+		  
+		  if(jug1.numeroHundidos()>jug2.numeroHundidos()) 
+		  {
+			  System.out.println("EL GANADOR ES EL  "+jug1.retNombre()+"!!!!!!");
+			  
+		  }
+		  if (jug2.numeroHundidos()>jug1.numeroHundidos()){
+			  System.out.println("EL GANADOR ES EL  "+jug1.retNombre()+"!!!!!!");
+			  
+		  }
+		  if(jug2.numeroHundidos()==jug1.numeroHundidos())
+		  {
+			  
+			  System.out.println("LOS DOS JUGADORES HABEIS HUNDIDO EL MISMO NUMERO DE BARCOS!!!");
+			  if(jug1.numeroTocados()>jug2.numeroTocados()) 
+			  {
+				  System.out.println("EL GANADOR ES EL "+jug1.retNombre()+"!!!!!!"
+				  		+ "PORQUE HA TOCADO MAS BARCOS!!");
+				  
+			  }
+			  if(jug2.numeroTocados()>jug1.numeroTocados()) 
+			  {
+				  
+				  System.out.println("EL GANADOR ES EL :"+jug2.retNombre()+"!!!!!!"
+					  		+ "PORQUE HA TOCADO MAS BARCOS!!");
+					  
+			  }
+			  if(jug2.numeroTocados()==jug1.numeroTocados()) {
+				  
+				  System.out.println("LOS DOS JUGADORES HABEIS TOCADO TAMBIEN EL MISMO NUMERO DE BARCOS!!!");
+				  System.out.println("EMPATE TOTAL!!!");
+			  }
+			  
+			  
+		  }
+		  
+	  }
+	  
+	  
+	  
+  }
   
   
 

@@ -7,12 +7,57 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class JuegoTest {
-		Juego juego = new Juego();
+	    Juego juego = new Juego();
 		@Test
-		public void menuTest() {
+		public void ConstructorTest() {
 			
-			//int resultado = juego.menu();
-			//assertTrue(resultado==1);
+			
+			int res1= juego.ComprobarListaBarcos();
+			assertEquals(res1,8);		
+			
+		}
+		@Test
+		public void DeterminarJugador() 
+		{
+			Jugador j1 = new Jugador("j1");
+			Jugador j2 = new Jugador("j2");
+			
+			j1.ponerGanador(true);
+			j2.ponerGanador(false);
+			
+		//	juego.DeterminarGanador(j1,j2);
+			
+			j1.ponerGanador(false);
+			j2.ponerGanador(true);
+			
+		//	juego.DeterminarGanador(j1,j2);
+			
+			j1.ponerGanador(true);
+			j2.ponerGanador(true);
+			
+			j1.sumarTocados();
+			j1.sumarTocados();
+			j2.sumarTocados();
+			
+		//	juego.DeterminarGanador(j1,j2);
+			
+			
+			j2.sumarTocados();
+			j2.sumarTocados();
+			j1.sumarTocados();
+			
+			
+			//juego.DeterminarGanador(j1,j2);
+			
+
+			j2.sumarTocados();
+			j2.sumarTocados();
+			j2.sumarTocados();
+			j1.sumarTocados();
+			
+			juego.DeterminarGanador(j1,j2);
+			
+			
 			
 		}
 	

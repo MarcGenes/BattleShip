@@ -20,12 +20,12 @@ public class Barco {
 	}
 	public void añadirCoordenadas(int x, int y)
 	{
-		System.out.println("afergir "+x+" "+y+" ");
+		
 		String sA = String.valueOf(x);
 		String sB = String.valueOf(y);
 
 		String res = sA + sB;
-		System.out.println(res);
+		
 		
 		
 		coordenadas.add(res);

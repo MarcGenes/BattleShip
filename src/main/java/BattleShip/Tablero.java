@@ -101,7 +101,7 @@ public class Tablero {
 	}
 	public boolean addBarco(int x, int y, String pos, int medida, Barco bar) 
 	{
-		System.out.println(x+" "+y);
+		
 		boolean barcoOK = true;
 		if(x<0 || y<0 || x>7 || y>7){barcoOK = false;}
 		if(barcoOK==true && valorPosicion(x,y)==BARCO){barcoOK = false;} 
