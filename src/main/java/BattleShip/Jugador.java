@@ -24,9 +24,9 @@ public class Jugador {
 	{
 		colocado=true;
 	}
-	public void DispardoBarcos() 
+	public void DisparadoBarcos() 
 	{
-		disparado=false;
+		disparado=true;
 	}
 	public boolean haColocadoTodos() 
 	{

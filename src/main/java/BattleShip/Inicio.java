@@ -75,12 +75,12 @@ public class Inicio {
 							if(j1.haDisparadoTodos()==false) {
 								System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+jugadores.get(1).retNombre()+".\n");
 								juego.Jugar(jugadores.get(0));
-								j1.haDisparadoTodos();
+								j1.DisparadoBarcos();
 							}else {
 								
 								System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+jugadores.get(0).retNombre()+".\n");
 								juego.Jugar(jugadores.get(1));
-								j2.haDisparadoTodos();
+								j2.DisparadoBarcos();
 							}
 							
 					    }
