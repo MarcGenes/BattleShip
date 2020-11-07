@@ -32,7 +32,7 @@ public class Inicio {
 					case 1:
 						salir=false;
 						 System.out.println("BIENVENIDO A HUNDIR LA FLOTA TEST EDITION! \n"
-						 		+ "NORMATIVA I DINÂMICA DE JUEGO:\n"
+						 		+ "NORMATIVA I DINÁMICA DE JUEGO:\n"
 						 		+ "BARCOS: \n");
 						  System.out.println("Hay 4 tipos de Barcos");
 						  System.out.println(" 2 Portaaviones que ocupan 4 casillas cada uno ");
@@ -98,7 +98,7 @@ public class Inicio {
 			} catch(Exception e) {
 				System.out.println("Debes introducir un numero del 1 al 3");
 				System.out.println();
-
+				sc.next();
 			}
 		}
 		sc.close();

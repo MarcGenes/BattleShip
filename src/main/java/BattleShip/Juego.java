@@ -49,6 +49,7 @@ public class Juego {
 	  int numB = 0;
 	  boolean barcoOK = true;
 	  Scanner reader = new Scanner(System.in);
+	  tab.mostrarTablero();
 	  while(numB<8) 
 	  {
 		

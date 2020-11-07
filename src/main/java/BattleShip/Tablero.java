@@ -103,19 +103,24 @@ public class Tablero {
 	{
 		
 		boolean barcoOK = true;
+		if(pos.equals("V") || pos.equals("v") || pos.equals("H") || pos.equals("h") ){barcoOK=true;}
+		else{
+			barcoOK=false;
+		}
+		
 		if(x<0 || y<0 || x>7 || y>7){barcoOK = false;}
 		if(barcoOK==true && valorPosicion(x,y)==BARCO){barcoOK = false;} 
 		if(barcoOK==true && pos=="H" && x+(medida-1)>7){barcoOK = false;}
 		if(barcoOK==true && pos=="V" && y+(medida-1)>7){barcoOK = false;}
 		if(barcoOK==true && casillaOcupada(x,y,pos, medida)==true){barcoOK= false;}
 		if(barcoOK == true ){
-			if( pos.equals("V")){
+			if( pos.equals("V") || pos.equals("v")){
 				for(int i=y; i<=y+(medida-1); i++){
 					llenarTablero(i,x,BARCO);
 					bar.añadirCoordenadas(x,i);
 				}
 			}
-			if( pos.equals("H")){
+			if( pos.equals("H")|| pos.equals("h")){
 				for(int j=x; j<=x+(medida-1);j++) 
 				{
 					llenarTablero(y,j,BARCO);
@@ -126,6 +131,7 @@ public class Tablero {
 			}
 			
 		}
+		
 		return barcoOK;
 	}
 	public boolean comprobarTirada(int x, int y)
