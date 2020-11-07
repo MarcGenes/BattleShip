@@ -20,15 +20,17 @@ public class Barco {
 	}
 	public void añadirCoordenadas(int x, int y)
 	{
-		
-		String sA = String.valueOf(x);
-		String sB = String.valueOf(y);
-
-		String res = sA + sB;
-		
-		
-		
-		coordenadas.add(res);
+		if(coordenadas.size()<medida) {
+			String sA = String.valueOf(x);
+			String sB = String.valueOf(y);
+	
+			String res = sA + sB;
+			
+			
+			
+			coordenadas.add(res);
+		}else {System.out.println("ERROR mas coordenadas que medida del barco");}
+	
 		
 		
 	}
@@ -42,6 +44,10 @@ public class Barco {
 		return hundido;
 	
 	}
+	public int numeroTocado() 
+	{
+		return tocado;
+	}
 	public boolean comprobarCoordenadas(int x, int y)
 	{
 		String sA = String.valueOf(x);
@@ -51,19 +57,21 @@ public class Barco {
 		
 		int cont=0;
 		boolean encontrado=false;
-		while(cont<coordenadas.size() && encontrado ==false) 
-		{
-			
-			if(coordenadas.get(cont) == res)
+		if(estaHundido()==false) {
+			while(cont<coordenadas.size() && encontrado ==false) 
 			{
-				encontrado=true;
-				tocado++;
 				
+				if(coordenadas.get(cont).equals(res))
+				{
+					encontrado=true;
+					tocado++;
+					
+				}
+				
+				
+				cont++;
 			}
-			
-			
-			cont++;
-		}
+		}else {System.out.println("Este barco ya esta hundido!!");}
 		return encontrado;
 		
 	}
@@ -84,17 +92,13 @@ public class Barco {
 		return medida;
 	}
 
-	public void setMedida(int medida) {
-		this.medida = medida;
-	}
+	
 
 	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+	
 	
 	
 	
