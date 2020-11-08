@@ -102,8 +102,8 @@ public class Tablero {
 	public boolean addBarco(int x, int y, String pos, int medida, Barco bar) 
 	{
 		
-		boolean barcoOK = true;
-		if(pos.equals("V") || pos.equals("v") || pos.equals("H") || pos.equals("h") ){barcoOK=true;}
+		boolean barcoOK = false;
+		if(pos.equals("V") || pos.equals("H") ){barcoOK=true;}
 		else{
 			barcoOK=false;
 		}

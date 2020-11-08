@@ -61,7 +61,7 @@ public class Inicio {
 						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j1.getNombre()+".\n");
 						j1.colocadoBarcos();
 						juego.colocarBarcos(sc);
-						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j1.getNombre()+".\n");
+						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j2.getNombre()+".\n");
 						juego.jugar(j1, sc);
 						
 						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j2.getNombre()+".\n");

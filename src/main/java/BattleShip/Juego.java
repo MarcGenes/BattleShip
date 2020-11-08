@@ -42,17 +42,28 @@ public class Juego {
 	  int numB = 0;
 	  boolean barcoOK = true;
 	  tab.mostrarTablero();
+	  int x =0;
+	  int y=0;
+	  String pos="";
 	  while(numB<8) 
 	  {
 		  System.out.println("Introduce las coordenadas y la posicion del barco"+ (numB+1));
 		  System.out.println(barcos.get(numB).getTipo()+" Medida: "+barcos.get(numB).getMedida() );
 		  System.out.println("Coordenada X: ");
-		  int x = reader.nextInt();
+		  try {
+			  x=reader.nextInt();
+		  }catch(Exception e){barcoOK=false;}
 		  System.out.println("Coordenada Y: ");
-		  int y = reader.nextInt();
+		  try {
+		    y = reader.nextInt();
+		  }catch(Exception e) {barcoOK=false;}
 		  System.out.println("Posicion del Barco ( V o H ) ");
-		  String pos = reader.next();
-		  barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida(),barcos.get(numB));
+		  try {
+		   pos = reader.next();
+		  }catch(Exception e){barcoOK=false;}
+		  if(barcoOK =true) {
+		   barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida(),barcos.get(numB));
+		  }
 		  //guardar posicion en tablero de los barcos asi sabremos si estan tocados o hundidos
 		  
 		  if(barcoOK == false){
@@ -74,6 +85,8 @@ public class Juego {
 	  
 	  int tiradas = 0;
 	  int totalTiradas= 45;
+	  Tablero tabDisparos = new Tablero(8);
+	  boolean casillaOcupada=false;
 	 
 	  while(tiradas<totalTiradas) 
 	  {
@@ -93,13 +106,15 @@ public class Juego {
 			  if(tocado == false) 
 			  {
 				  System.out.println("AGUA!!! NO HAS TOCADO NINGUN BARCO!");
-				  muestra.mostrarTablero();
+				  
 				  
 			  }else {
 				  
 				  int cont=0;
 				  boolean encontrado = false;
-				  while(cont< barcos.size() && encontrado == false)
+				
+				  while(cont< barcos.size() && encontrado == false) 
+					  // por cada barco miramos si tienen esas coordenadas
 				  {
 					  //muestra.llenarTablero(x, y, BARCO);
 					  //muestra.mostrarTablero();
@@ -109,15 +124,27 @@ public class Juego {
 						  if(barcos.get(cont).estaHundido() == false) 
 						  {
 							  System.out.println(barcos.get(cont).getTipo()+" TOCADO!!!");
+							  tabDisparos.llenarTablero(y,x,1);
+							  barcos.get(cont).sumarTocado();
 							  jug.sumarTocados();
-							  
-						  }else {
+						  }
+						  if(barcos.get(cont).estaHundido()==true) {
 							  System.out.println(barcos.get(cont).getTipo()+" HUNDIDO!!!");
 							  jug.sumarHundidos();  
 						  }
-					  }
+						  
+						  tabDisparos.mostrarTablero();
+						  
+						  
+					  }else { casillaOcupada=true;}
 					  cont++;
+					  
+					
 						    
+				  }
+				  if(casillaOcupada==true) 
+				  {System.out.println("CASILLA YA DISPARADA!!");
+					  casillaOcupada=false;
 				  }
 			  }
 			   tiradas++;

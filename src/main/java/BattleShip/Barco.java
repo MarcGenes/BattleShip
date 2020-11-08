@@ -8,6 +8,8 @@ public class Barco {
 	private boolean hundido;
 	private int tocado;
 	ArrayList<String> coordenadas = new ArrayList<String>();
+	ArrayList<Boolean>coordTocadas= new ArrayList<Boolean>();
+	
 	
 	public Barco(int med, String tip) 
 	{
@@ -15,40 +17,45 @@ public class Barco {
 		tipo=tip;
 		hundido=false;
 		tocado=0;
+		for(int i=0;i<medida;i++)
+		{
+			coordTocadas.add(false);
+		}
 		
 		
 	}
 	public void agregarCoordenadas(int x, int y)
 	{
-		if(coordenadas.size()<medida) {
+		
+	
+			
 			String sA = String.valueOf(x);
 			String sB = String.valueOf(y);
 	
 			String res = sA + sB;
 			
 			
-			
 			coordenadas.add(res);
-		}else {System.out.println("ERROR mas coordenadas que medida del barco");}
-	
-		
+				
 		
 	}
 	public boolean estaHundido() 
 	{
-		if(tocado==medida) 
-		{
-			hundido = true;
-		}
 		
-		return hundido;
+		return 	hundido;
 	
 	}
 	public int numeroTocado() 
 	{
 		return tocado;
 	}
-	public boolean comprobarCoordenadas(int x, int y)
+	public void sumarTocado() 
+	{
+		
+		tocado++;
+		if(tocado==medida) {hundido=true;}
+	}
+	public boolean comprobarCoordenadas(int x, int y) // comprobamos si existe coordenada, i si es asi tocamos el barco!
 	{
 		String sA = String.valueOf(x);
 		String sB = String.valueOf(y);
@@ -61,20 +68,21 @@ public class Barco {
 			while(cont<coordenadas.size() && encontrado ==false) 
 			{
 				
-				if(coordenadas.get(cont).equals(res))
+				if(coordenadas.get(cont).equals(res) && coordTocadas.get(cont)==false)
 				{
 					encontrado=true;
-					tocado++;
+					coordTocadas.add(cont, true);
 					
 				}
 				
 				
 				cont++;
 			}
-		}else {System.out.println("Este barco ya esta hundido!!");}
+		}
 		return encontrado;
 		
 	}
+	
 	public void pintarCoordenadas() 
 	{
 		for(int i =0; i<coordenadas.size();i++) 

@@ -9,6 +9,10 @@ public class BarcoTest {
 	@Test
 	public void test() {
 		
+		//hay Pruebas individuales que no se pueden hacer ya que ya hay el control, en metodos superiores.
+		
+		
+		
 		Barco bar = new Barco(4,"Prueba");
 		
 		int med = bar.getMedida(); // la medida del barco està establezida no la entra el usuario,
@@ -24,12 +28,14 @@ public class BarcoTest {
 		
 		bar.agregarCoordenadas(0,1);
 		
-		assertTrue(bar.comprobarCoordenadas(0, 1)==true); // suma ++  a tocado al encontrar una coordenada que coninciida con el
 		
+		
+		assertTrue(bar.comprobarCoordenadas(0, 1)==true); // suma ++  a tocado al encontrar una coordenada que coninciida con el
+		//comprovacion que no se puede entrar la misma coordenada.
 		assertTrue(bar.comprobarCoordenadas(3, 5)==false);
 		
 		
-		
+		bar.sumarTocado();
 		int toc2 = bar.numeroTocado(); 
 		assertEquals(toc2,1);
 		
@@ -44,8 +50,11 @@ public class BarcoTest {
 		
 		//comrpobamos si estan todas las coordenadas
 		assertTrue(bar.comprobarCoordenadas(0, 2)==true);
+		bar.sumarTocado();
 		assertTrue(bar.comprobarCoordenadas(0, 3)==true);
+		bar.sumarTocado();
 		assertTrue(bar.comprobarCoordenadas(0, 4)==true);
+		bar.sumarTocado();
 
 		
 		int toc3 = bar.numeroTocado(); 
