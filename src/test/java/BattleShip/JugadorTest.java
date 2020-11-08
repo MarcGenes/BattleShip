@@ -16,12 +16,12 @@ public class JugadorTest {
 		assertFalse(jug.haDisparadoTodos()==true);
 		assertFalse(jug.haColocadoTodos()==true);
 		
-		jug.ColocadoBarcos();
+		jug.colocadoBarcos();
 		assertTrue(jug.haColocadoTodos()==true);
-		jug.DisparadoBarcos();
+		jug.disparadoBarcos();
 		assertTrue(jug.haDisparadoTodos()==true);
 		assertFalse(jug.haDisparadoTodos()==false);
-		String nom = jug.retNombre();
+		String nom = jug.getNombre();
 		assertEquals(nom,"jugador");
 		jug.ponerGanador(true);
 		assertTrue(jug.esGanador()==true);
@@ -30,9 +30,6 @@ public class JugadorTest {
 		assertEquals(toc,1);
 		jug.sumarHundidos();//suma ++
 		int hun = jug.numeroHundidos();
-		assertEquals(hun,1);
-		
-		
-		
+		assertEquals(hun,1);	
 	}
 }

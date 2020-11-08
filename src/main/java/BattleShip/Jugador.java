@@ -20,19 +20,17 @@ public class Jugador {
 		disparado=false;
 		
 	}
-	public void ColocadoBarcos() 
+	public void colocadoBarcos() 
 	{
 		colocado=true;
 	}
-	public void DisparadoBarcos() 
+	public void disparadoBarcos() 
 	{
 		disparado=true;
 	}
 	public boolean haColocadoTodos() 
 	{
 		return colocado;
-		
-		
 	}
 	public boolean haDisparadoTodos()
 	{
@@ -41,9 +39,8 @@ public class Jugador {
 	public void ponerGanador(boolean gan) 
 	{
 		ganador=gan;
-		
 	}
-	public String retNombre()
+	public String getNombre()
 	{
 		return nombre;
 	}
@@ -61,7 +58,6 @@ public class Jugador {
 	}
 	public void sumarHundidos()
 	{
-		
 		hundidos++;
 	}
 	public int numeroHundidos() 

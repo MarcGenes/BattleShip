@@ -14,7 +14,7 @@ public class TableroTest {
 
 	@Test
 	public void testComprobarTablero(){
-		assertTrue(t1.ComprobarTablero()==true);
+		assertTrue(t1.comprobarTablero()==true);
 	}
 	@Test
 	public void testAddBarco(){
@@ -45,7 +45,7 @@ public class TableroTest {
 		
 		
 		
-		t1.LlenarTableroAgua();// reiniciar tablero.
+		t1.llenarTableroAgua();// reiniciar tablero.
 		
 		t1.mostrarTablero();
 		assertTrue(t1.addBarco(5, 0, "H", 4,b )==false);

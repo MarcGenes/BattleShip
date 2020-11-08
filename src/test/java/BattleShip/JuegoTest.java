@@ -12,7 +12,7 @@ public class JuegoTest {
 		public void ConstructorTest() {
 			
 			
-			int res1= juego.ComprobarListaBarcos();
+			int res1= juego.comprobarListaBarcos();
 			assertEquals(res1,8);		
 			
 		}
@@ -55,7 +55,7 @@ public class JuegoTest {
 			j2.sumarTocados();
 			j1.sumarTocados();
 			
-			juego.DeterminarGanador(j1,j2);
+			juego.determinarGanador(j1,j2);
 			
 			
 			

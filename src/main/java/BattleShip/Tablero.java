@@ -12,7 +12,7 @@ public class Tablero {
 	public Tablero (int s) {
 		size=s;
 		tab= new int [size][size];
-		LlenarTableroAgua();
+		llenarTableroAgua();
 	}
 	
 	public int getSize() {
@@ -24,7 +24,7 @@ public class Tablero {
 		tab[posI][posJ]=valor;	
 	}
 
-	public void LlenarTableroAgua() {
+	public void llenarTableroAgua() {
 		  
 		  for(int i =0; i<getSize();i++)
 		  {
@@ -117,14 +117,14 @@ public class Tablero {
 			if( pos.equals("V") || pos.equals("v")){
 				for(int i=y; i<=y+(medida-1); i++){
 					llenarTablero(i,x,BARCO);
-					bar.añadirCoordenadas(x,i);
+					bar.agregarCoordenadas(x,i);
 				}
 			}
 			if( pos.equals("H")|| pos.equals("h")){
 				for(int j=x; j<=x+(medida-1);j++) 
 				{
 					llenarTablero(y,j,BARCO);
-					bar.añadirCoordenadas(j,y);
+					bar.agregarCoordenadas(j,y);
 				}
 					
 				
@@ -150,7 +150,7 @@ public class Tablero {
 	}
 	
 	
-	 public boolean ComprobarTablero(){
+	 public boolean comprobarTablero(){
 		 boolean var = true;
 		 for (int i=0; i<getSize(); i++){
 			 for(int j=0; j<getSize(); j++){

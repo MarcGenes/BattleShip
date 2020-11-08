@@ -6,15 +6,13 @@ import java.util.*;
 
 public class Juego {
 	
-
+ final int  BARCO = 1;
  Tablero tab = new Tablero(8);
  ArrayList<Barco> barcos = new ArrayList<Barco>();
-
+ Tablero muestra = new Tablero(8);
 	
  public Juego()	{
   
-  
- 
   Barco port1= new Barco (4,"Portaavion One");
   barcos.add(port1);
   Barco port2 = new Barco(4, "Portaavion Two");
@@ -32,27 +30,20 @@ public class Juego {
   Barco sub2 = new Barco(1, "Submarino Two");
   barcos.add(sub2);
   
-  
-  
  }
- public int ComprobarListaBarcos() 
+ public int comprobarListaBarcos() 
  {
 	 return barcos.size();
  }
   
- 
   
-  public void ColocarBarcos() //falta test de esto
+  public void colocarBarcos(Scanner reader) //falta test de esto
   {
-	  
-
 	  int numB = 0;
 	  boolean barcoOK = true;
-	  Scanner reader = new Scanner(System.in);
 	  tab.mostrarTablero();
 	  while(numB<8) 
 	  {
-		
 		  System.out.println("Introduce las coordenadas y la posicion del barco"+ (numB+1));
 		  System.out.println(barcos.get(numB).getTipo()+" Medida: "+barcos.get(numB).getMedida() );
 		  System.out.println("Coordenada X: ");
@@ -67,33 +58,31 @@ public class Juego {
 		  if(barcoOK == false){
 			 System.out.println("Las coordenadas o la posicion del barco incorrectas, sale de los limites del Tablero o posicion ocupada");
 		  }else{
-			  
 			  numB++;
-		  }
-		 
-		
+		  } 
 		  tab.mostrarTablero();
 	  }
-	 
-	  reader.close();
-	  
-	  
-	  
   }
-  public void Jugar(Jugador jug)  // falta test de esto
+  
+  
+  
+  public void jugar(Jugador jug, Scanner reader)  // falta test de esto
   {
+	  
+	  muestra.llenarTableroAgua();
+	  muestra.mostrarTablero();
+	  
 	  int tiradas = 0;
 	  int totalTiradas= 45;
-	  Scanner reader2 = new Scanner(System.in);
-	  
+	 
 	  while(tiradas<totalTiradas) 
 	  {
-		  System.out.println("EMPIEZA LA TIRADA NUMEROvb"+ (tiradas+1) + " DE "+totalTiradas);
+		  System.out.println("EMPIEZA LA TIRADA NUMERO "+ (tiradas+1) + " DE "+totalTiradas);
 		  System.out.println("INTRODUCE LAS COORDENADAS QUE QUIERAS DISPARAR!");
-		  System.out.println("introduce X:");
-		  int x = reader2.nextInt();
-		  System.out.println("introduce Y:");
-		  int y = reader2.nextInt();
+		  System.out.println("Introduce X:");
+		  int x = reader.nextInt();
+		  System.out.println("Introduce Y:");
+		  int y = reader.nextInt();
 		  if((x > 7 || y > 7) || (x<0 || y<0)) 
 		  {
 			  System.out.println("ERROR!! LAS COORDENADAS DEBEN ESTAR DENTRO DEL TABLERO");
@@ -104,13 +93,16 @@ public class Juego {
 			  if(tocado == false) 
 			  {
 				  System.out.println("AGUA!!! NO HAS TOCADO NINGUN BARCO!");
+				  muestra.mostrarTablero();
 				  
 			  }else {
 				  
 				  int cont=0;
-				  boolean encontrado= false;
-				  while(cont< barcos.size() && encontrado ==false)
+				  boolean encontrado = false;
+				  while(cont< barcos.size() && encontrado == false)
 				  {
+					  //muestra.llenarTablero(x, y, BARCO);
+					  //muestra.mostrarTablero();
 					  encontrado = barcos.get(cont).comprobarCoordenadas(x,y);
 					  if(encontrado== true)
 					  {
@@ -121,91 +113,65 @@ public class Juego {
 							  
 						  }else {
 							  System.out.println(barcos.get(cont).getTipo()+" HUNDIDO!!!");
-							  jug.sumarHundidos();
-
-							  
+							  jug.sumarHundidos();  
 						  }
-						 
-
 					  }
 					  cont++;
 						    
 				  }
-			  
-			  
 			  }
-
 			   tiradas++;
-			  
 		  }
-		  
-		  
 	  }
 	  if(jug.numeroHundidos()==8) 
 	  {
 		  jug.ponerGanador(true);
 	  }
-	  
-	  reader2.close();
   }
   
   
   
-  public void DeterminarGanador(Jugador jug1, Jugador jug2) 
+  public void determinarGanador(Jugador jug1, Jugador jug2) 
   {
 	  if(jug1.esGanador()==true && jug2.esGanador()==false) 
 	  {
-		  System.out.println("EL GANADOR ES EL JUGADOR "+jug1.retNombre()+"!!!!!!");
-		  
+		  System.out.println("EL GANADOR ES EL JUGADOR "+jug1.getNombre()+"!!!!!!");
 	  }
 	  if(jug2.esGanador()==true && jug1.esGanador()==false) 
-	  { System.out.println("EL GANADOR ES EL  "+jug2.retNombre()+"!!!!!");}
+	  { 
+		  System.out.println("EL GANADOR ES EL JUGADOR "+jug2.getNombre()+"!!!!!!");
+	  }
 	  
 	  if(jug2.esGanador()==true && jug1.esGanador()==true)
 	  { 
 		  
 		  if(jug1.numeroHundidos()>jug2.numeroHundidos()) 
 		  {
-			  System.out.println("EL GANADOR ES EL  "+jug1.retNombre()+"!!!!!!");
+			  System.out.println("EL GANADOR ES EL  "+jug1.getNombre()+"!!!!!!");
 			  
 		  }
 		  if (jug2.numeroHundidos()>jug1.numeroHundidos()){
-			  System.out.println("EL GANADOR ES EL  "+jug1.retNombre()+"!!!!!!");
-			  
+			  System.out.println("EL GANADOR ES EL  "+jug1.getNombre()+"!!!!!!");
 		  }
 		  if(jug2.numeroHundidos()==jug1.numeroHundidos())
 		  {
-			  
 			  System.out.println("LOS DOS JUGADORES HABEIS HUNDIDO EL MISMO NUMERO DE BARCOS!!!");
 			  if(jug1.numeroTocados()>jug2.numeroTocados()) 
 			  {
-				  System.out.println("EL GANADOR ES EL "+jug1.retNombre()+"!!!!!!"
+				  System.out.println("EL GANADOR ES EL "+jug1.getNombre()+"!!!!!!"
 				  		+ "PORQUE HA TOCADO MAS BARCOS!!");
 				  
 			  }
 			  if(jug2.numeroTocados()>jug1.numeroTocados()) 
 			  {
-				  
-				  System.out.println("EL GANADOR ES EL :"+jug2.retNombre()+"!!!!!!"
+				  System.out.println("EL GANADOR ES EL :"+jug2.getNombre()+"!!!!!!"
 					  		+ "PORQUE HA TOCADO MAS BARCOS!!");
-					  
 			  }
 			  if(jug2.numeroTocados()==jug1.numeroTocados()) {
-				  
 				  System.out.println("LOS DOS JUGADORES HABEIS TOCADO TAMBIEN EL MISMO NUMERO DE BARCOS!!!");
 				  System.out.println("EMPATE TOTAL!!!");
 			  }
-			  
-			  
 		  }
-		  
 	  }
-	  
-	  
-	  
   }
-  
-  
-
-	
 }

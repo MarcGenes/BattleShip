@@ -18,7 +18,7 @@ public class Barco {
 		
 		
 	}
-	public void añadirCoordenadas(int x, int y)
+	public void agregarCoordenadas(int x, int y)
 	{
 		if(coordenadas.size()<medida) {
 			String sA = String.valueOf(x);
@@ -98,10 +98,5 @@ public class Barco {
 		return tipo;
 	}
 
-	
-	
-	
-	
-	
 
 }

@@ -22,7 +22,7 @@ public class BarcoTest {
 		assertEquals(toc,0);
 		
 		
-		bar.añadirCoordenadas(0,1);
+		bar.agregarCoordenadas(0,1);
 		
 		assertTrue(bar.comprobarCoordenadas(0, 1)==true); // suma ++  a tocado al encontrar una coordenada que coninciida con el
 		
@@ -38,9 +38,9 @@ public class BarcoTest {
 		
 		// afegim coordenades dun barco V
 
-		bar.añadirCoordenadas(0,2);
-		bar.añadirCoordenadas(0,3);
-		bar.añadirCoordenadas(0,4);
+		bar.agregarCoordenadas(0,2);
+		bar.agregarCoordenadas(0,3);
+		bar.agregarCoordenadas(0,4);
 		
 		//comrpobamos si estan todas las coordenadas
 		assertTrue(bar.comprobarCoordenadas(0, 2)==true);
@@ -60,7 +60,7 @@ public class BarcoTest {
 		System.out.println(toc4);
 		assertEquals(toc4,4); // i que no suma tocados
 		
-		bar.añadirCoordenadas(0,5); //error limite de coordenadas ( mostrado por si a caso en pantalla).
+		bar.agregarCoordenadas(0,5); //error limite de coordenadas ( mostrado por si a caso en pantalla).
 		//independiente del numero de las coordenadas, es el hecho de añadir más.
 		
 		//pintamos coordenadas entradas del barco
