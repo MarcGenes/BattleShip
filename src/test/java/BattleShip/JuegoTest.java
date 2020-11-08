@@ -8,6 +8,21 @@ import org.junit.Test;
 
 public class JuegoTest {
 	    Juego juego = new Juego();
+	    
+	    @Test
+	    public void JuegoCompletoTest() 
+	    {
+	    	Jugador j1 = new Jugador("j1");
+	    	
+	    	MockDatosEntrada mck = new MockDatosEntrada();
+	    	mck.entradasTeclado(1);
+	    	juego.tipoEntradaDatos(mck);
+	    	juego.colocarBarcos(); // esto lo hace automaticamente el mock.
+	    	mck.entradasTeclado(2);
+	    	juego.jugar(j1); // aki le pasamos el jugador que juega, pero las entradas las mete el mock.
+	    	
+	    	
+	    }
 		@Test
 		public void ConstructorTest() {
 			
@@ -58,8 +73,8 @@ public class JuegoTest {
 			juego.determinarGanador(j1,j2);
 			
 			
-			
 		}
+		
 	
 }
 

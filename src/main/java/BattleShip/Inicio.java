@@ -10,7 +10,7 @@ public class Inicio {
 		Jugador j1 = new Jugador("Jugador1");
 	    Jugador j2 = new Jugador("Jugador2");
 			  
-		Scanner sc = new Scanner(System.in);
+		Scanner read= new Scanner(System.in);
 		boolean salir = false;
 		
 		while(salir==false)
@@ -21,7 +21,7 @@ public class Inicio {
 				System.out.println("Entra 1: Normas");
 				System.out.println("Entra 2: Jugar");
 				System.out.println("Entra 3: Salir");
-				int op = sc.nextInt();
+				int op = read.nextInt();
 				switch(op)
 				{
 					case 1:
@@ -60,15 +60,15 @@ public class Inicio {
 				
 						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j1.getNombre()+".\n");
 						j1.colocadoBarcos();
-						juego.colocarBarcos(sc);
+						juego.colocarBarcos();
 						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j2.getNombre()+".\n");
-						juego.jugar(j1, sc);
+						juego.jugar(j1);
 						
 						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j2.getNombre()+".\n");
 						j2.colocadoBarcos();
-						juego.colocarBarcos(sc);
+						juego.colocarBarcos();
 						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j1.getNombre()+".\n");
-						juego.jugar(j2, sc);
+						juego.jugar(j2);
 						
 						juego.determinarGanador(j1, j2);
 						
@@ -85,10 +85,10 @@ public class Inicio {
 				System.out.println("Debes introducir un numero del 1 al 3");
 				e.printStackTrace();
 				System.out.println(e);
-				sc.next();
+				read.next();
 			}
 		}
-		sc.close();
+		read.close();
 	
 	}
 	

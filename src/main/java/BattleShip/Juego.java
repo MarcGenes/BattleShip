@@ -7,9 +7,11 @@ import java.util.*;
 public class Juego {
 	
  final int  BARCO = 1;
- Tablero tab = new Tablero(8);
- ArrayList<Barco> barcos = new ArrayList<Barco>();
- Tablero muestra = new Tablero(8);
+ final int  AGUA = 0;
+  Tablero tab = new Tablero(8);
+  ArrayList<Barco> barcos = new ArrayList<Barco>();
+  Tablero muestra = new Tablero(8);
+  DatosEntrada datosEn = new LeerDatosEntrada();
 	
  public Juego()	{
   
@@ -31,13 +33,18 @@ public class Juego {
   barcos.add(sub2);
   
  }
+ 
+ public void tipoEntradaDatos(DatosEntrada d) 
+ {
+	 datosEn=d;
+ }
  public int comprobarListaBarcos() 
  {
 	 return barcos.size();
  }
   
   
-  public void colocarBarcos(Scanner reader) //falta test de esto
+  public void colocarBarcos() //falta test de esto
   {
 	  int numB = 0;
 	  boolean barcoOK = true;
@@ -51,15 +58,15 @@ public class Juego {
 		  System.out.println(barcos.get(numB).getTipo()+" Medida: "+barcos.get(numB).getMedida() );
 		  System.out.println("Coordenada X: ");
 		  try {
-			  x=reader.nextInt();
+			  x= datosEn.entrarCoordenadaX();
 		  }catch(Exception e){barcoOK=false;}
 		  System.out.println("Coordenada Y: ");
 		  try {
-		    y = reader.nextInt();
+		    y = datosEn.entrarCoordenadaY();
 		  }catch(Exception e) {barcoOK=false;}
 		  System.out.println("Posicion del Barco ( V o H ) ");
 		  try {
-		   pos = reader.next();
+		   pos = datosEn.entrarPosicion();
 		  }catch(Exception e){barcoOK=false;}
 		  if(barcoOK =true) {
 		   barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida(),barcos.get(numB));
@@ -77,28 +84,38 @@ public class Juego {
   
   
   
-  public void jugar(Jugador jug, Scanner reader)  // falta test de esto
+  public void jugar(Jugador jug)  // falta test de esto
   {
 	  
 	  muestra.llenarTableroAgua();
+	  System.out.println();
+	  System.out.println();
+	  System.out.println("TABLERO DE TIRO: \n");
 	  muestra.mostrarTablero();
 	  
 	  int tiradas = 0;
 	  int totalTiradas= 45;
 	  Tablero tabDisparos = new Tablero(8);
-	  boolean casillaOcupada=false;
+
+	  boolean entradaOK=true;
+	  int x=0; int y=0;
 	 
 	  while(tiradas<totalTiradas) 
 	  {
 		  System.out.println("EMPIEZA LA TIRADA NUMERO "+ (tiradas+1) + " DE "+totalTiradas);
 		  System.out.println("INTRODUCE LAS COORDENADAS QUE QUIERAS DISPARAR!");
 		  System.out.println("Introduce X:");
-		  int x = reader.nextInt();
+		  try {
+			 x= datosEn.entrarCoordenadaDisparoX();
+		  }catch(Exception e){entradaOK=false;}
 		  System.out.println("Introduce Y:");
-		  int y = reader.nextInt();
-		  if((x > 7 || y > 7) || (x<0 || y<0)) 
+		  try {
+		     y = datosEn.entrarCoordenadaDisparoY();
+		  }catch(Exception e) {entradaOK=false;}
+		  
+		  if( (x > 7 || y > 7) || (x<0 || y<0) && entradaOK==false) 
 		  {
-			  System.out.println("ERROR!! LAS COORDENADAS DEBEN ESTAR DENTRO DEL TABLERO");
+			  System.out.println("ERROR!! LAS COORDENADAS NO SE HAN ENTRADO CORRECTAMENTE");
 		  }
 		  else {
 			  
@@ -112,43 +129,41 @@ public class Juego {
 				  
 				  int cont=0;
 				  boolean encontrado = false;
-				
-				  while(cont< barcos.size() && encontrado == false) 
-					  // por cada barco miramos si tienen esas coordenadas
-				  {
-					  //muestra.llenarTablero(x, y, BARCO);
-					  //muestra.mostrarTablero();
-					  encontrado = barcos.get(cont).comprobarCoordenadas(x,y);
-					  if(encontrado== true)
+				  if(tabDisparos.valorPosicion(x, y)==AGUA) {	
+					  while(cont< barcos.size() && encontrado == false) 
+						  // por cada barco miramos si tienen esas coordenadas
 					  {
-						  if(barcos.get(cont).estaHundido() == false) 
-						  {
-							  System.out.println(barcos.get(cont).getTipo()+" TOCADO!!!");
-							  tabDisparos.llenarTablero(y,x,1);
-							  barcos.get(cont).sumarTocado();
-							  jug.sumarTocados();
-						  }
-						  if(barcos.get(cont).estaHundido()==true) {
-							  System.out.println(barcos.get(cont).getTipo()+" HUNDIDO!!!");
-							  jug.sumarHundidos();  
-						  }
 						  
-						  tabDisparos.mostrarTablero();
+							  encontrado = barcos.get(cont).comprobarCoordenadas(x,y);
+							  if(encontrado== true)
+							  {
+								  if(barcos.get(cont).estaHundido() == false) 
+								  {
+									  System.out.println(barcos.get(cont).getTipo()+" TOCADO!!!");
+									  tabDisparos.llenarTablero(y,x,1);
+									  barcos.get(cont).sumarTocado();
+									  jug.sumarTocados();
+								  }
+								  if(barcos.get(cont).estaHundido()==true) {
+									  System.out.println(barcos.get(cont).getTipo()+" HUNDIDO!!!");
+									  jug.sumarHundidos();  
+								  }
+								  
+								  tabDisparos.mostrarTablero();
+							  }
+							  
+						 
+						  cont++;
 						  
-						  
-					  }else { casillaOcupada=true;}
-					  cont++;
-					  
-					
-						    
-				  }
-				  if(casillaOcupada==true) 
-				  {System.out.println("CASILLA YA DISPARADA!!");
-					  casillaOcupada=false;
-				  }
+						
+							    
+					  }
+				  }else {System.out.println("CASILLA YA DISPARADA!");}
+				 
 			  }
 			   tiradas++;
 		  }
+		  
 	  }
 	  if(jug.numeroHundidos()==8) 
 	  {
