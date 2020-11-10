@@ -36,11 +36,11 @@ public class MockDatosEntrada implements DatosEntrada{
 		  
 		  //continuar metiendo coordenadas hasta 45. si no se meten sale ya disparadas pero es normal.
 		  
+		   
 		  
-		  
-	  }
-		
-	
+	  } //datos entrada de INICIO
+	  
+
 		
 		
 	}

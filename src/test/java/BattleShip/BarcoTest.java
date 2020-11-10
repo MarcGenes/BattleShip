@@ -9,7 +9,10 @@ public class BarcoTest {
 	@Test
 	public void test() {
 		
-		//hay Pruebas individuales que no se pueden hacer ya que ya hay el control, en metodos superiores.
+		//cada metodo testeado siempre le llegan bien los datos de coordenadas y posicion del barco.
+		//Comprobado en metodos superiores.
+		
+		
 		
 		
 		
@@ -22,19 +25,20 @@ public class BarcoTest {
 		String tip = bar.getTipo();// lo mismo pasa con el tipo, ya esta establezido por el juego,
 		assertEquals(tip,"Prueba"); // pero lo comprobamos.
 
-		int toc = bar.numeroTocado(); 
+		int toc = bar.numeroTocado();  //inicio barco no esta tocado
 		assertEquals(toc,0);
 		
 		
-		bar.agregarCoordenadas(0,1);
+		bar.agregarCoordenadas(0,1); //metemos las coordenadas donde esta el barco en el tablero
 		
 		
-		
-		assertTrue(bar.comprobarCoordenadas(0, 1)==true); // suma ++  a tocado al encontrar una coordenada que coninciida con el
 		//comprovacion que no se puede entrar la misma coordenada.
-		assertTrue(bar.comprobarCoordenadas(3, 5)==false);
+		assertTrue(bar.comprobarCoordenadas(0, 1)==true); 
+		//comprovamos una coordenada no entrada. 
+		//no haria falta ya que si no hay baco en una coordenada no entrarà nuca a mirar que barcos la tienen.
+	    assertTrue(bar.comprobarCoordenadas(3, 5)==false);
 		
-		
+		// suma ++  a tocado al encontrar una coordenada que coninciida con el
 		bar.sumarTocado();
 		int toc2 = bar.numeroTocado(); 
 		assertEquals(toc2,1);
@@ -42,7 +46,7 @@ public class BarcoTest {
 		//comprovamos que un barco con un solo toque no esta hundido, ya que es de medida 4.
 		assertTrue(bar.estaHundido()==false);
 		
-		// afegim coordenades dun barco V
+		// añadimos las coordenadas restantes de sus posiciones
 
 		bar.agregarCoordenadas(0,2);
 		bar.agregarCoordenadas(0,3);
@@ -61,13 +65,13 @@ public class BarcoTest {
 		System.out.println(toc3);
 		assertEquals(toc3,4); // comprovamos que se ha tocado las 4 coordenadas del barco i sumamos 4 tocados
 		
-		// per tant esta enfonsat
+		// por lo tanto esta hundido
 		assertTrue(bar.estaHundido()==true); // por lo tanto esta hundido
-		assertTrue(bar.comprobarCoordenadas(0, 4)==false); // volvemos a comprobar coordenadas del mismo barco
+		assertTrue(bar.comprobarCoordenadas(0, 4)==false); // volvemos a comprobar una coordenada igual del mismo barco
 		assertTrue(bar.estaHundido()==true); // comprovamos que continua hundido
 		int toc4 = bar.numeroTocado(); 
 		System.out.println(toc4);
-		assertEquals(toc4,4); // i que no suma tocados
+		assertEquals(toc4,4); //  no suma mas tocados
 		
 		bar.agregarCoordenadas(0,5); //error limite de coordenadas ( mostrado por si a caso en pantalla).
 		//independiente del numero de las coordenadas, es el hecho de añadir más.
