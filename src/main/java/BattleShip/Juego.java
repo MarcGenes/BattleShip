@@ -21,7 +21,7 @@ public class Juego {
   barcos.add(port2);
   Barco  des1 = new Barco (3,"Destructor One");
   barcos.add(des1);
-  Barco des2 = new Barco(3, "Destructor Two");
+  Barco des2 = new Barco(3, "Destructor Two"); 
   barcos.add(des2);
   Barco frag1 = new Barco (2,"Fragata One");
   barcos.add(frag1);

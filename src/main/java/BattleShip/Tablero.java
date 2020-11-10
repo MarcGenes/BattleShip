@@ -60,6 +60,7 @@ public class Tablero {
 		return tab[y][x];
 	}
 	
+	//comprovacion de si alguna casilla de un barco coincide con alguna ocupada anteriormente.
 	public boolean casillaOcupada(int x, int y, String pos, int medida){
 		boolean ocupada = false;
 	
@@ -108,11 +109,11 @@ public class Tablero {
 			barcoOK=false;
 		}
 		
-		if(x<0 || y<0 || x>7 || y>7){barcoOK = false;}
-		if(barcoOK==true && valorPosicion(x,y)==BARCO){barcoOK = false;} 
-		if(barcoOK==true && pos=="H" && x+(medida-1)>7){barcoOK = false;}
-		if(barcoOK==true && pos=="V" && y+(medida-1)>7){barcoOK = false;}
-		if(barcoOK==true && casillaOcupada(x,y,pos, medida)==true){barcoOK= false;}
+		if(x<0 || y<0 || x>7 || y>7){barcoOK = false;} //comprovamos que x e y esten dentro de los rangos.
+		if(barcoOK==true && valorPosicion(x,y)==BARCO){barcoOK = false;} //comprovamos primera casilla ok
+		if(barcoOK==true && pos=="H" && x+(medida-1)>7){barcoOK = false;} // comprovamos si medida en H, sale de los limites
+		if(barcoOK==true && pos=="V" && y+(medida-1)>7){barcoOK = false;} // comprobamos si medida en V sale de los limites
+		if(barcoOK==true && casillaOcupada(x,y,pos, medida)==true){barcoOK= false;} //comprovamos si alguna casilla del abrcos coicnide con un barco ya puesto
 		if(barcoOK == true ){
 			if( pos.equals("V") || pos.equals("v")){
 				for(int i=y; i<=y+(medida-1); i++){

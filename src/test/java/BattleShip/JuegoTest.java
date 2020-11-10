@@ -18,14 +18,14 @@ public class JuegoTest {
 	    	mck.entradasTeclado(1);
 	    	juego.tipoEntradaDatos(mck);
 	    	juego.colocarBarcos(); // esto lo hace automaticamente el mock.
-	    	mck.entradasTeclado(2);
+	    	mck.entradasTeclado(2); // hay que poner la opcion 2 para que coja los datos de disparar.
 	    	juego.jugar(j1); // aki le pasamos el jugador que juega, pero las entradas las mete el mock.
 	    	
 	    	
 	    }
 		@Test
 		public void ConstructorTest() {
-			
+			 
 			
 			int res1= juego.comprobarListaBarcos();
 			assertEquals(res1,8);		
