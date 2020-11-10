@@ -91,6 +91,7 @@ public class TableroTest {
 	
 	@Test
 	public void testValorPsoicion()  // en este metodo nunca habrà valores erroneos de x, e y, se comprueban anteriormente.
+									//solo se comprueba la casilla introducida por el usuario al colocar el barco
 	{
 		t1.llenarTableroAgua();
 		//añadimos 3 barcos de diferentes medidas
@@ -100,13 +101,13 @@ public class TableroTest {
 	    
 	    t1.mostrarTablero();
 	    
-	    int res1 = t1.valorPosicion(1, 0); //casilla ocupada
+	    int res1 = t1.valorPosicion(1, 0); //casilla ocupada 1
 	    assertEquals(res1,1);
 	    
-	    int res2 = t1.valorPosicion(5, 6); //casilla ocupada
+	    int res2 = t1.valorPosicion(5, 6); //casilla ocupada 2 
 	    assertEquals(res2,1);
 	    
-	    int res3 = t1.valorPosicion(1, 4); //casilla ocupada
+	    int res3 = t1.valorPosicion(1, 4); //casilla ocupada 3
 	    assertEquals(res3,1);
 	    
 	    int res4 = t1.valorPosicion(6, 5); //casilla libre (agua)
@@ -118,13 +119,14 @@ public class TableroTest {
 		
 	}
 	@Test
-	public void testCasillaOcupada() // este metodo solo se ejecuta para comprovar si poniendo un barco en una casilla,
+	public void testCasillaOcupada() // este metodo solo se ejecuta para comprovar si poniendo un barco en una casilla libre
 	                                 //alguna casilla de su medida ocupa o no un barco puesto anteriormente.
 	                                 //en este metodo no se comprueba si la casilla introducida coincide o no. Se hace en el metodo valorPosicion();
 									// aqui nunca llegarà una x, o una y  fuera de rango. ni una posicion o  medida erronia.
+	                              
 	{
 		t1.llenarTableroAgua();
-		//añadimos 3 barcos de diferentes medidas
+		//añadimos 3 barcos de diferentes medidas en posiciones libres.
 		t1.addBarco(1,0,"V",4,b); //1
 	    t1.addBarco(5, 6, "H", 3,b); // 2
 	    t1.addBarco(1, 4, "H", 4,b); //3
@@ -134,7 +136,6 @@ public class TableroTest {
 	    assertTrue(t1.casillaOcupada(0, 1, "H", 4)==true); // hacemos coincidir la segunda casilla de este,  con una casilla del barco 1.
 	    assertTrue(t1.casillaOcupada(5, 5, "V", 2)==true); // Hacemos coincidir la seguna casilla de este, con alguna casilla del barco numero 2.
 	    assertTrue(t1.casillaOcupada(4, 2, "V", 3)==true); // Hacemos coincidir la ultima casilla de este, con  alguna casilla del barco numero 3.
-	    
 	    assertTrue(t1.casillaOcupada(2, 5, "V", 3)==false); // este barco no deberia coincidir con ninguno.
 	    
 	    assertTrue(t1.casillaOcupada(0, 7, "H", 3)==false); // este barco tampoco deberia coincidir con ninguna.
