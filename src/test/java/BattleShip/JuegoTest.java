@@ -12,19 +12,55 @@ public class JuegoTest {
 	    @Test
 	    public void JuegoCompletoTest() 
 	    {
+	    	
+	    	
 	    	Jugador j1 = new Jugador("j1");
+	    	Jugador j2 = new Jugador("j2");
 	    	
 	    	MockDatosEntrada mck = new MockDatosEntrada();
-	    	mck.entradasTeclado(1);
+	    	
+	    	mck.entradasTeclado(1); //entrada de barco del usuario (j1)
 	    	juego.tipoEntradaDatos(mck);
 	    	juego.colocarBarcos(); // esto lo hace automaticamente el mock.
 	    	mck.entradasTeclado(2); // hay que poner la opcion 2 para que coja los datos de disparar.
 	    	juego.jugar(j1); // aqui le pasamos el jugador que juega, pero las entradas las mete el mock.
 	    	
+	    	int hun= j1.numeroHundidos();
+	    	int toc =j1.numeroTocados();
+	    	assertEquals(hun,4);
+	    	assertEquals(toc,9);
+	    	
+	        juego.resetTablerosIBarcos();
+	    	
+	
+	    	
+	    	mck.entradasTeclado(3);
+	    	juego.tipoEntradaDatos(mck);
+	    	juego.colocarBarcos();
+	    	mck.entradasTeclado(4);
+	    	juego.jugar(j2);
+	    	
+	    	
+	    	int hun2= j2.numeroHundidos();
+	    	int toc2 =j2.numeroTocados();
+	    	assertEquals(hun2,4);
+	    	assertEquals(toc2,10);
+	    	
+	    	
+	    	juego.determinarGanador(j1, j2);
+	    	
+	    	
 	    	
 	    }
 	  
-	    
+	    @Test
+	    public void ColocarBarcos() 
+	    {
+	    	
+	    	
+	    	
+	    	
+	    }
 		@Test
 		public void ConstructorTest() {
 
@@ -35,18 +71,19 @@ public class JuegoTest {
 		@Test
 		public void DeterminarJugador() 
 		{
+			Juego juego = new Juego();
 			Jugador j1 = new Jugador("j1");
 			Jugador j2 = new Jugador("j2");
 			
 			j1.ponerGanador(true);
 			j2.ponerGanador(false);
 			
-		//	juego.DeterminarGanador(j1,j2);
+		//	juego.determinarGanador(j1,j2);
 			
 			j1.ponerGanador(false);
 			j2.ponerGanador(true);
 			
-		//	juego.DeterminarGanador(j1,j2);
+		//	juego.determinarGanador(j1,j2);
 			
 			j1.ponerGanador(true);
 			j2.ponerGanador(true);
@@ -55,7 +92,14 @@ public class JuegoTest {
 			j1.sumarTocados();
 			j2.sumarTocados();
 			
-		//	juego.DeterminarGanador(j1,j2);
+			j1.ponerGanador(false);
+			j2.ponerGanador(false);
+			
+			j1.sumarTocados();
+			j1.sumarTocados();
+			j2.sumarTocados();
+			
+			juego.determinarGanador(j1,j2);
 			
 			
 			j2.sumarTocados();
@@ -63,7 +107,7 @@ public class JuegoTest {
 			j1.sumarTocados();
 			
 			
-			//juego.DeterminarGanador(j1,j2);
+			//juego.determinarGanador(j1,j2);
 			
 
 			j2.sumarTocados();
@@ -71,7 +115,7 @@ public class JuegoTest {
 			j2.sumarTocados();
 			j1.sumarTocados();
 			
-			juego.determinarGanador(j1,j2);
+		 //	juego.determinarGanador(j1,j2);
 			
 			
 		}

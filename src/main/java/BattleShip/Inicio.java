@@ -49,7 +49,7 @@ public class Inicio {
 						  System.out.println("\n");
 						  System.out.println("---------------------------------- \n");
 						  System.out.println (" LA DINAMICA DEL JUEGO ES POR TURNOS COMPLETOS. ES DECIR, EL JUGADOR 1, COLOCA TODOS SUS BARCOS EN EL TABLERO. "
-								+ "\n UNA VEZ COLOCADOS, ES EL TURNO DEL JUGADOR 2, QUE DEBE INTETNTAR HUNDIRLOS. TENDRA 45 INTENTOS PARA ELLO. \n CUANTOS MAS HUNDA O TOQUE MEJOR "
+								+ "\n UNA VEZ COLOCADOS, ES EL TURNO DEL JUGADOR 2, QUE DEBE INTETNTAR HUNDIRLOS. TENDRA 35 INTENTOS PARA ELLO. \n CUANTOS MAS HUNDA O TOQUE MEJOR "
 								+ "\n UNA VEZ EL JUGADOR 2 HAYA AGOTADO SUS TIRADAS O HUNDIDO TODOS LOS BARCOS, CREARA SU TABLERO, \n Y SERA EL TURNO DEL JUGADOR 1 DE INTENTAR HUNDIR "
 								+ "\n O TOCAR EL MAXIMO DE BARCOS POSSIBLES. "
 								+ "\n QUIEN MAS BARCOS HUNDIDOS Y/O TOCADOS TENGA, GANA LA PARTIDA. \n");
@@ -63,6 +63,7 @@ public class Inicio {
 						juego.colocarBarcos();
 						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j2.getNombre()+".\n");
 						juego.jugar(j1);
+						
 						
 						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j2.getNombre()+".\n");
 						j2.colocadoBarcos();

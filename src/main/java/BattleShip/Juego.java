@@ -9,8 +9,9 @@ public class Juego {
  final int  BARCO = 1;
  final int  AGUA = 0;
   Tablero tab = new Tablero(8);
+  Tablero tabDisparos = new Tablero(8);
   ArrayList<Barco> barcos = new ArrayList<Barco>();
-  Tablero muestra = new Tablero(8);
+  
   DatosEntrada datosEn = new LeerDatosEntrada();
 	
  public Juego()	{
@@ -87,16 +88,16 @@ public class Juego {
   public void jugar(Jugador jug)  // falta test de esto
   {
 	  
-	  muestra.llenarTableroAgua();
+	 
 	  System.out.println();
 	  System.out.println();
 	  System.out.println("TABLERO DE TIRO: \n");
-	  muestra.mostrarTablero();
+	  tabDisparos.mostrarTablero();
 	  
 	  int tiradas = 0;
-	  int totalTiradas= 45;
-	  Tablero tabDisparos = new Tablero(8);
-
+	  int totalTiradas= 35;
+	
+      //tabDisparos.llenarTableroAgua();
 	  boolean entradaOK=true;
 	  int x=0; int y=0;
 	 
@@ -113,7 +114,7 @@ public class Juego {
 		     y = datosEn.entrarCoordenadaDisparoY();
 		  }catch(Exception e) {entradaOK=false;}
 		  
-		  if( (x > 7 || y > 7) || (x<0 || y<0) && entradaOK==false) 
+		  if( x > 7 || y > 7 || x<0 || y<0 || entradaOK==false) 
 		  {
 			  System.out.println("ERROR!! LAS COORDENADAS NO SE HAN ENTRADO CORRECTAMENTE");
 		  }
@@ -149,7 +150,7 @@ public class Juego {
 									  jug.sumarHundidos();  
 								  }
 								  
-								  tabDisparos.mostrarTablero();
+								  
 							  }
 							  
 						 
@@ -158,10 +159,12 @@ public class Juego {
 						
 							    
 					  }
+					  
 				  }else {System.out.println("CASILLA YA DISPARADA!");}
-				 
+				  
 			  }
 			   tiradas++;
+			   tabDisparos.mostrarTablero();
 		  }
 		  
 	  }
@@ -171,7 +174,28 @@ public class Juego {
 	  }
   }
   
-  
+  public void resetTablerosIBarcos() 
+  {
+	  tab.llenarTableroAgua();
+	  tabDisparos.llenarTableroAgua();
+	  barcos.clear();
+	  Barco port1= new Barco (4,"Portaavion One");
+	  barcos.add(port1);
+	  Barco port2 = new Barco(4, "Portaavion Two");
+	  barcos.add(port2);
+	  Barco  des1 = new Barco (3,"Destructor One");
+	  barcos.add(des1);
+	  Barco des2 = new Barco(3, "Destructor Two"); 
+	  barcos.add(des2);
+	  Barco frag1 = new Barco (2,"Fragata One");
+	  barcos.add(frag1);
+	  Barco frag2 = new Barco(2, "Fragata Two");
+	  barcos.add(frag2);
+	  Barco sub1 = new Barco (1,"Submarino One");
+	  barcos.add(sub1);
+	  Barco sub2 = new Barco(1, "Submarino Two");
+	  barcos.add(sub2);
+  }
   
   public void determinarGanador(Jugador jug1, Jugador jug2) 
   {
@@ -184,7 +208,7 @@ public class Juego {
 		  System.out.println("EL GANADOR ES EL JUGADOR "+jug2.getNombre()+"!!!!!!");
 	  }
 	  
-	  if(jug2.esGanador()==true && jug1.esGanador()==true)
+	  if((jug2.esGanador()==false && jug1.esGanador()==false) || (jug2.esGanador()==true && jug1.esGanador()==true))
 	  { 
 		  
 		  if(jug1.numeroHundidos()>jug2.numeroHundidos()) 

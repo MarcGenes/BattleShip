@@ -170,7 +170,7 @@ public class Tablero {
 	}
 	
 	
-	 public boolean comprobarTablero(){
+	 public boolean comprobarTablero(){ //solo para test para ver que se crea bien
 		 boolean var = true;
 		 for (int i=0; i<getSize(); i++){
 			 for(int j=0; j<getSize(); j++){
