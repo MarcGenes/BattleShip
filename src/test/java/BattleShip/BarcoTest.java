@@ -19,7 +19,7 @@ public class BarcoTest {
 		Barco bar = new Barco(4,"Prueba");
 		
 		int med = bar.getMedida(); // la medida del barco està establezida no la entra el usuario,
-		// pero comprovamos que el metodo funciona bien.
+		// pero comprobamos que el metodo funciona bien.
 		assertEquals(med,4);
 		
 		String tip = bar.getTipo();// lo mismo pasa con el tipo, ya esta establezido por el juego,
@@ -46,13 +46,13 @@ public class BarcoTest {
 		//comprovamos que un barco con un solo toque no esta hundido, ya que es de medida 4.
 		assertTrue(bar.estaHundido()==false);
 		
-		// añadimos las coordenadas restantes de sus posiciones
+		// agregamoos las coordenadas restantes de sus posiciones
 
 		bar.agregarCoordenadas(0,2);
 		bar.agregarCoordenadas(0,3);
 		bar.agregarCoordenadas(0,4);
 		
-		//comrpobamos si estan todas las coordenadas
+		//comprobamos si estan todas las coordenadas
 		assertTrue(bar.comprobarCoordenadas(0, 2)==true);
 		bar.sumarTocado();
 		assertTrue(bar.comprobarCoordenadas(0, 3)==true);

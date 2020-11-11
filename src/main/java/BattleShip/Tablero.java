@@ -15,6 +15,25 @@ public class Tablero {
 		llenarTableroAgua();
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if(o == null){ return false;}
+		
+		if(o.getClass()!= this.getClass()){ return false;}
+		
+		final Tablero aux = (Tablero) o;
+		
+		for(int i=0; i<this.getSize();i++){
+			for(int j=0;j<this.getSize();j++){
+				if(this.tab[i][j] != aux.tab[i][j]){
+					return false;
+				}
+			}
+		}
+		return true;
+    } 
+	
+	
 	public int getSize() {
 		return size;
 	}
@@ -127,14 +146,14 @@ public class Tablero {
 					llenarTablero(y,j,BARCO);
 					bar.agregarCoordenadas(j,y);
 				}
-					
-				
+	
 			}
 			
 		}
 		
 		return barcoOK;
 	}
+	
 	public boolean comprobarTirada(int x, int y)
 	{
 		boolean tocado;

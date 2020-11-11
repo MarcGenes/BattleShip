@@ -18,6 +18,15 @@ public class TableroTest {
 		assertTrue(t1.comprobarTablero()==true);
 	}
 	@Test
+	public void testGenerarTableroOK(){
+	    	Tablero tab = new Tablero(8);
+	    	tab.llenarTableroAgua();
+	    	Tablero tab2 = new Tablero(8);
+	    	tab.llenarTableroAgua();
+	    	assertEquals(tab.equals(tab2),true);
+	}
+	
+	@Test
 	public void testAddBarco(){
 
 		// TRUE (barcos bien colocados)
@@ -102,11 +111,11 @@ public class TableroTest {
 	}
 	
 	@Test
-	public void testValorPsoicion()  // en este metodo nunca habrà valores erroneos de x, e y, se comprueban anteriormente.
+	public void testValorPsoicion()  // en este metodo nunca habra� valores erroneos de x, e y, se comprueban anteriormente.
 									//solo se comprueba la casilla introducida por el usuario al colocar el barco
 	{
 		t1.llenarTableroAgua();
-		//añadimos 3 barcos de diferentes medidas
+		//agregamos 3 barcos de diferentes medidas
 		t1.addBarco(1,0,"V",4,b); //1
 	    t1.addBarco(5, 6, "H", 3,b); // 2
 	    t1.addBarco(1, 4, "H", 4,b); //3

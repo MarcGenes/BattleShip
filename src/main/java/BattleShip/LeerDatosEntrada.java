@@ -28,7 +28,6 @@ public class LeerDatosEntrada implements DatosEntrada{
 	
 	public String entrarPosicion() 
 	{
-		
 		return read.next();
 	}
 

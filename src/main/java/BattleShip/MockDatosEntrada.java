@@ -107,7 +107,6 @@ public class MockDatosEntrada implements DatosEntrada{
 		{
 			res= coordDisparoY.get(contDisY);
 			contDisY++;
-			
 		}
 	    return res;
 		
