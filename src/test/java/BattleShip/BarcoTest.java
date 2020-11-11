@@ -9,20 +9,17 @@ public class BarcoTest {
 	@Test
 	public void test() {
 		
-		//cada metodo testeado siempre le llegan bien los datos de coordenadas y posicion del barco.
+		//Cada metodo testeado siempre le llegan bien los datos de coordenadas y posicion del barco.
 		//Comprobado en metodos superiores.
-		
-		
-		
 		
 		
 		Barco bar = new Barco(4,"Prueba");
 		
-		int med = bar.getMedida(); // la medida del barco està establezida no la entra el usuario,
+		int med = bar.getMedida(); // la medida del barco esta establezida no la entra el usuario,
 		// pero comprobamos que el metodo funciona bien.
 		assertEquals(med,4);
 		
-		String tip = bar.getTipo();// lo mismo pasa con el tipo, ya esta establezido por el juego,
+		String tip = bar.getTipo();// lo mismo pasa con el tipo, ya esta establecido por el juego,
 		assertEquals(tip,"Prueba"); // pero lo comprobamos.
 
 		int toc = bar.numeroTocado();  //inicio barco no esta tocado
@@ -35,7 +32,7 @@ public class BarcoTest {
 		//comprovacion que no se puede entrar la misma coordenada.
 		assertTrue(bar.comprobarCoordenadas(0, 1)==true); 
 		//comprovamos una coordenada no entrada. 
-		//no haria falta ya que si no hay baco en una coordenada no entrarà nuca a mirar que barcos la tienen.
+		//no haria falta ya que si no hay baco en una coordenada no entrara nuca a mirar que barcos la tienen.
 	    assertTrue(bar.comprobarCoordenadas(3, 5)==false);
 		
 		// suma ++  a tocado al encontrar una coordenada que coninciida con el
@@ -74,7 +71,7 @@ public class BarcoTest {
 		assertEquals(toc4,4); //  no suma mas tocados
 		
 		bar.agregarCoordenadas(0,5); //error limite de coordenadas ( mostrado por si a caso en pantalla).
-		//independiente del numero de las coordenadas, es el hecho de añadir más.
+		//independiente del numero de las coordenadas, es el hecho de a�adir m�s.
 		
 		//pintamos coordenadas entradas del barco
 		

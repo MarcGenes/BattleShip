@@ -143,8 +143,7 @@ public class TableroTest {
 	public void testCasillaOcupada() // este metodo solo se ejecuta para comprovar si poniendo un barco en una casilla libre
 	                                 //alguna casilla de su medida ocupa o no un barco puesto anteriormente.
 	                                 //en este metodo no se comprueba si la casilla introducida coincide o no. Se hace en el metodo valorPosicion();
-									// aqui nunca llegarà una x, o una y  fuera de rango. ni una posicion o  medida erronia.
-	                              
+									// aqui nunca llegarà una x, o una y  fuera de rango. ni una posicion o  medida erronia.                            
 	{
 		t1.llenarTableroAgua();
 		//añadimos 3 barcos de diferentes medidas en posiciones libres.
@@ -160,11 +159,9 @@ public class TableroTest {
 	    assertTrue(t1.casillaOcupada(2, 5, "V", 3)==false); // este barco no deberia coincidir con ninguno.
 	    
 	    assertTrue(t1.casillaOcupada(0, 7, "H", 3)==false); // este barco tampoco deberia coincidir con ninguna.
-	    
-	    
-	    
-		
 	}
+	
+	
 	@Test
 	public void testComprobarTirada() //este metodo comprueba si i actualiza una variable tocado dependiendo de si es agua o no.
 	//muy parecido a valorPosicion(), retornando boolean en vez de int.

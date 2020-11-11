@@ -20,42 +20,37 @@ public class Barco {
 		for(int i=0;i<medida;i++)
 		{
 			coordTocadas.add(false);
-		}
-		
-		
+		}		
 	}
+	
 	public void agregarCoordenadas(int x, int y)
 	{
-		
-	
-			
+
 			String sA = String.valueOf(x);
 			String sB = String.valueOf(y);
 	
 			String res = sA + sB;
-			
-			
-			coordenadas.add(res);
-				
 		
+			coordenadas.add(res);		
 	}
+	
 	public boolean estaHundido() 
 	{
-		
 		return 	hundido;
-	
 	}
+	
 	public int numeroTocado() 
 	{
 		return tocado;
 	}
+	
 	public void sumarTocado() 
-	{
-		
+	{	
 		tocado++;
 		if(tocado==medida) {hundido=true;}
 	}
-	public boolean comprobarCoordenadas(int x, int y) // comprobamos si existe coordenada, i si es asi tocamos el barco!
+	
+	public boolean comprobarCoordenadas(int x, int y) // comprobamos si existe coordenada, y si es asi tocamos el barco!
 	{
 		String sA = String.valueOf(x);
 		String sB = String.valueOf(y);
@@ -71,11 +66,8 @@ public class Barco {
 				if(coordenadas.get(cont).equals(res) && coordTocadas.get(cont)==false)
 				{
 					encontrado=true;
-					coordTocadas.add(cont, true);
-					
-				}
-				
-				
+					coordTocadas.add(cont, true);	
+				}			
 				cont++;
 			}
 		}
@@ -94,17 +86,13 @@ public class Barco {
 		System.out.println();
 	}
 	
-	
 
 	public int getMedida() {
 		return medida;
 	}
 
-	
-
 	public String getTipo() {
 		return tipo;
 	}
-
 
 }

@@ -30,9 +30,7 @@ public class JuegoTest {
 	    	assertEquals(hun,4);
 	    	assertEquals(toc,9);
 	    	
-	        juego.resetTablerosIBarcos();
-	    	
-	
+	        juego.resetTablerosYBarcos();
 	    	
 	    	mck.entradasTeclado(3);
 	    	juego.tipoEntradaDatos(mck);
@@ -40,27 +38,16 @@ public class JuegoTest {
 	    	mck.entradasTeclado(4);
 	    	juego.jugar(j2);
 	    	
-	    	
 	    	int hun2= j2.numeroHundidos();
 	    	int toc2 =j2.numeroTocados();
 	    	assertEquals(hun2,4);
 	    	assertEquals(toc2,10);
 	    	
-	    	
 	    	juego.determinarGanador(j1, j2);
 	    	
-	    	
-	    	
 	    }
-	  
-	    @Test
-	    public void ColocarBarcos() 
-	    {
-	    	
-	    	
-	    	
-	    	
-	    }
+
+	 
 		@Test
 		public void ConstructorTest() {
 
@@ -71,51 +58,69 @@ public class JuegoTest {
 		@Test
 		public void DeterminarJugador() 
 		{
+			
 			Juego juego = new Juego();
-			Jugador j1 = new Jugador("j1");
-			Jugador j2 = new Jugador("j2");
+			Jugador j1 = new Jugador("Jugador1");
+			Jugador j2 = new Jugador("Jugador2");
 			
+			//EL JUGADOR1 HA HUNDIDO LOS 8 BARCOS Y POR TANTO GANA
 			j1.ponerGanador(true);
 			j2.ponerGanador(false);
-			
-		//	juego.determinarGanador(j1,j2);
-			
-			j1.ponerGanador(false);
-			j2.ponerGanador(true);
-			
-		//	juego.determinarGanador(j1,j2);
-			
-			j1.ponerGanador(true);
-			j2.ponerGanador(true);
-			
-			j1.sumarTocados();
-			j1.sumarTocados();
-			j2.sumarTocados();
-			
-			j1.ponerGanador(false);
-			j2.ponerGanador(false);
-			
-			j1.sumarTocados();
-			j1.sumarTocados();
-			j2.sumarTocados();
-			
 			juego.determinarGanador(j1,j2);
+			assertEquals(j1.esGanador(),true);
+			assertEquals(j2.esGanador(),false);
 			
 			
+			//EL JUGADOR2 HA HUNDIDO LOS 8 BARCOS Y POR TANTO GANA 
+			j1.ponerGanador(false);
+			j2.ponerGanador(true);
+			juego.determinarGanador(j1,j2);
+			assertEquals(j1.esGanador(),false);
+			assertEquals(j2.esGanador(),true);
+			
+			//LOS DOS GANAN Y POR TANTO LOS DOS HAN HUNDIDO EL MISMO NUMERO DE BARCOS
+			j1.ponerGanador(true);
+			j2.ponerGanador(true);
+			juego.determinarGanador(j1,j2);
+			assertEquals(j1.esGanador(),true);
+			assertEquals(j2.esGanador(),true);
+			
+			//NINGUNO HA HUNDIDO TODOS LOS BARCOS PERO EL JUGADOR1 HA TOCADO MAS
+			j1.ponerGanador(false);
+			j2.ponerGanador(false);
+			j1.sumarTocados();
+			j1.sumarTocados();
+			j2.sumarTocados();
+			juego.determinarGanador(j1,j2);
+			assertEquals(j1.esGanador(),true);
+			assertEquals(j2.esGanador(),false);
+			j1.reinciarTocados();
+			j2.reinciarTocados();
+			
+			//NINGUNO HA HUNDIDO TODOS LOS BARCOS PERO EL JUGADOR2 HA TOCADO MAS
+			j1.ponerGanador(false);
+			j2.ponerGanador(false);
 			j2.sumarTocados();
 			j2.sumarTocados();
 			j1.sumarTocados();
+			juego.determinarGanador(j1,j2);
+			assertEquals(j1.esGanador(),false);
+			assertEquals(j2.esGanador(),true);
+			j1.reinciarTocados();
+			j2.reinciarTocados();
 			
 			
-			//juego.determinarGanador(j1,j2);
-			
-
-			j2.sumarTocados();
-			j2.sumarTocados();
-			j2.sumarTocados();
+			//LOS DOS JUGADORES HAN HUNDIDO EL MISMO NUMERO DE BARCOS Y TOCADO EL MISMO NUMERO POR TANTO EMPATAN
+			j1.ponerGanador(false);
+			j2.ponerGanador(false);
 			j1.sumarTocados();
-			
-		 //	juego.determinarGanador(j1,j2);
+			j1.sumarTocados();
+			j2.sumarTocados();
+			j2.sumarTocados();
+			juego.determinarGanador(j1,j2);
+			assertEquals(j1.esGanador(),true);
+			assertEquals(j2.esGanador(),true);
+	
 			
 			
 		}

@@ -64,4 +64,7 @@ public class Jugador {
 	{
 		return hundidos;
 	}
+	public void reinciarTocados(){
+		tocados=0;
+	}
 }
