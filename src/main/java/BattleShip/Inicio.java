@@ -58,20 +58,7 @@ public class Inicio {
 						salir = true;
 						Juego juego = new Juego();
 				
-						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j1.getNombre()+".\n");
-						j1.colocadoBarcos();
-						juego.colocarBarcos();
-						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j2.getNombre()+".\n");
-						juego.jugar(j1);
-						
-						
-						System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j2.getNombre()+".\n");
-						j2.colocadoBarcos();
-						juego.colocarBarcos();
-						System.out.println("TURNO DE DISPARAR DEL JUGADOR: "+j1.getNombre()+".\n");
-						juego.jugar(j2);
-						
-						juego.determinarGanador(j1, j2);
+						juego.inicioPartida(j1, j2);
 						
 						break;
 					case 3:
@@ -83,9 +70,7 @@ public class Inicio {
 						System.out.println();
 				}
 			} catch(Exception e) {
-				System.out.println("Debes introducir un numero del 1 al 3");
-				e.printStackTrace();
-				System.out.println(e);
+				System.out.println("Error al No introducir numero, debe introducir un numero del 1 al 3");
 				read.next();
 			}
 		}

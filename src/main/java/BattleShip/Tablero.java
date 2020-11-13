@@ -16,7 +16,7 @@ public class Tablero {
 	}
 	
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(Object o) { //metodo solo para hacer test
 		if(o == null){ return false;}
 		
 		if(o.getClass()!= this.getClass()){ return false;}

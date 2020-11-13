@@ -10,12 +10,15 @@ public class JuegoTest {
 	    Juego juego = new Juego();
 	    
 	    @Test
-	    public void JuegoCompletoTest() 
+	    public void JuegoCompletoTestMock() 
 	    {
 	    	
-	    	
+	 
 	    	Jugador j1 = new Jugador("j1");
 	    	Jugador j2 = new Jugador("j2");
+	    	
+	    	
+	    	
 	    	
 	    	MockDatosEntrada mck = new MockDatosEntrada();
 	    	
@@ -45,6 +48,18 @@ public class JuegoTest {
 	    	
 	    	juego.determinarGanador(j1, j2);
 	    	
+	    }
+	    @Test
+	    public void inicioPartidaJuegoManual()  //este test solo se comprueba 
+	    //el metodo de inicio, al hacer una aprtida manualmente.
+	    {
+	    	
+	    	
+	    	Jugador j1 = new Jugador("j1");
+	    	Jugador j2 = new Jugador("j2");
+	    	
+	    	
+	    	//juego.inicioPartida(j1, j2);
 	    }
 
 	 

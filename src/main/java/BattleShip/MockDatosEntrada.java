@@ -80,15 +80,19 @@ public class MockDatosEntrada implements DatosEntrada{
 	  {
 		    coordX.add(-3);coordY.add(-2);posi.add("V"); //error
 			coordX.add(12120);coordY.add(12343);posi.add("H"); //error
-			
-			
-			coordX.add(0);coordY.add(0);posi.add("V"); //ok
-			coordX.add(1);coordY.add(1);posi.add("H");
+			coordX.add(12120);coordY.add(12343);posi.add("X"); //error
+			coordX.add(12120);coordY.add(12343);posi.add("J"); //error
+			coordX.add(0);coordY.add(0);posi.add("V"); //ok medida4
+			coordX.add(0);coordY.add(2);posi.add("V"); //error barco en mismo sitio que uno existente
+			coordX.add(1);coordY.add(1);posi.add("H"); //ok medida4
+			coordX.add(3);coordY.add(0);posi.add("V"); //error  medida 3, casilla 2 del barco coincide con uno ya existente en V
 			coordX.add(2);coordY.add(5);posi.add("V");
 			coordX.add(5);coordY.add(6);posi.add("H");
+			coordX.add(4);coordY.add(6);posi.add("H"); //error barco casilla 2 en mismo sitio que uno existente en H
 			coordX.add(0);coordY.add(6);posi.add("V");
 			coordX.add(5);coordY.add(3);posi.add("H");
 			coordX.add(7);coordY.add(0);posi.add("V");
+			coordX.add(7);coordY.add(0);posi.add("V"); //error barco en mismo sitio que uno existente
 			coordX.add(7);coordY.add(7);posi.add("V");
 		  
 	  }

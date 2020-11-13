@@ -9,7 +9,7 @@ public class LeerDatosEntrada implements DatosEntrada{
 	{
 		read= new Scanner(System.in);
 	}
-	public int entrarCoordenadaX() 
+	public int entrarCoordenadaX() //solo se ejecutan las siguientes si se entraran los datos a mano.
 	{
 		return read.nextInt();
 	}
