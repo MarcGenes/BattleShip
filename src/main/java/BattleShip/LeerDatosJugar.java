@@ -1,11 +1,11 @@
 package BattleShip;
 import java.util.Scanner;
 
-public class LeerDatosEntrada implements DatosEntrada{
+public class LeerDatosJugar implements DatosJugar{
 	
 	private Scanner read;
 	
-	LeerDatosEntrada()
+	LeerDatosJugar()
 	{
 		read= new Scanner(System.in);
 	}
@@ -29,6 +29,11 @@ public class LeerDatosEntrada implements DatosEntrada{
 	public String entrarPosicion() 
 	{
 		return read.next();
+	}
+	public int entrarOpcionMenu() 
+	{
+		return read.nextInt();
+		
 	}
 
 }

@@ -5,17 +5,19 @@ import org.junit.Test;
 
 public class InicioTest {
 	
-	Inicio ini = new Inicio();
-	
 	@Test
-	public void iniciotest() 
+	public void testmenuInicio() 
 	{
+		Inicio ini = new Inicio();
 		
-		ini.main(null); 
-      
+		MockDatosInicio mckI = new MockDatosInicio();
+    	
+		mckI.datosMenu(1); //entrada de barco del usuario (j1)
+		ini.tipoDatos(mckI);
+		ini.main(null);
+ 
+        Inicio ini2 = new Inicio();
 		
 	}
-	
-	
 
 }

@@ -29,7 +29,7 @@ public class BarcoTest {
 		bar.agregarCoordenadas(0,1); //metemos las coordenadas donde esta el barco en el tablero
 		
 		
-		//comprovacion que no se puede entrar la misma coordenada.
+		//comprovacion que no se puede entrar la misma coordenada. 
 		assertTrue(bar.comprobarCoordenadas(0, 1)==true); 
 		//comprovamos una coordenada no entrada. 
 		//no haria falta ya que si no hay baco en una coordenada no entrara nuca a mirar que barcos la tienen.
@@ -71,7 +71,7 @@ public class BarcoTest {
 		assertEquals(toc4,4); //  no suma mas tocados
 		
 		bar.agregarCoordenadas(0,5); //error limite de coordenadas ( mostrado por si a caso en pantalla).
-		//independiente del numero de las coordenadas, es el hecho de añadir más.
+		//independiente del numero de las coordenadas, es el hecho de aï¿½adir mï¿½s.
 		
 		//pintamos coordenadas entradas del barco
 		

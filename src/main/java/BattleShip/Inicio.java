@@ -3,6 +3,16 @@ import java.util.Scanner;
 
 public class Inicio {
 
+	static DatosInicio datosIni = new LeerDatosInicioMenu();
+	
+	public void tipoDatos (DatosInicio di) 
+	{
+		
+		datosIni=di;
+		
+		
+	}
+
 	public static void main (String[] args) 
 	{
 		System.out.println("BIENVENIDO A HUNDIR LA FLOTA TEST EDITION! \n");
@@ -13,15 +23,16 @@ public class Inicio {
 		Scanner read= new Scanner(System.in);
 		boolean salir = false;
 		
+		
 		while(salir==false)
-		{
+		{ 
 			try 
 			{
 				System.out.println("MENU INICIO: \n");
 				System.out.println("Entra 1: Normas");
 				System.out.println("Entra 2: Jugar");
 				System.out.println("Entra 3: Salir");
-				int op = read.nextInt();
+				int op = datosIni.datosInicioMenu();
 				switch(op)
 				{
 					case 1:
@@ -71,7 +82,7 @@ public class Inicio {
 				}
 			} catch(Exception e) {
 				System.out.println("Error al No introducir numero, debe introducir un numero del 1 al 3");
-				read.next();
+				datosIni.datosInicioMenu();
 			}
 		}
 		read.close();

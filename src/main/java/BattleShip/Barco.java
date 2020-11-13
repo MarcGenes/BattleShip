@@ -39,7 +39,7 @@ public class Barco {
 		return 	hundido;
 	}
 	
-	public int numeroTocado() 
+	public int numeroTocado() //metodo de test
 	{
 		return tocado;
 	}

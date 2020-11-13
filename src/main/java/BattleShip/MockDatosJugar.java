@@ -2,7 +2,7 @@ package BattleShip;
 
 import java.util.ArrayList;
 
-public class MockDatosEntrada implements DatosEntrada{
+public class MockDatosJugar implements DatosJugar{
 	
 	private ArrayList<Integer>coordX = new ArrayList<Integer>();
 	private ArrayList<Integer>coordY= new ArrayList<Integer>();

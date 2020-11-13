@@ -20,7 +20,7 @@ public class JuegoTest {
 	    	
 	    	
 	    	
-	    	MockDatosEntrada mck = new MockDatosEntrada();
+	    	MockDatosJugar mck = new MockDatosJugar();
 	    	
 	    	mck.entradasTeclado(1); //entrada de barco del usuario (j1)
 	    	juego.tipoEntradaDatos(mck);
@@ -75,7 +75,7 @@ public class JuegoTest {
 		{
 			
 			Juego juego = new Juego();
-			Jugador j1 = new Jugador("Jugador1");
+			Jugador j1 = new Jugador("Jugador1"); 
 			Jugador j2 = new Jugador("Jugador2");
 			
 			//EL JUGADOR1 HA HUNDIDO LOS 8 BARCOS Y POR TANTO GANA

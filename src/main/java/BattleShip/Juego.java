@@ -3,6 +3,7 @@
  */
 package BattleShip;
 
+
 import java.util.*;
 
 public class Juego {
@@ -13,7 +14,7 @@ public class Juego {
   Tablero tabDisparos = new Tablero(8);
   ArrayList<Barco> barcos = new ArrayList<Barco>();
   
-  DatosEntrada datosEn = new LeerDatosEntrada();
+  DatosJugar datosEn = new LeerDatosJugar();
 	
  public Juego()	{
   
@@ -36,7 +37,7 @@ public class Juego {
   
  }
  
- public void tipoEntradaDatos(DatosEntrada d) 
+ public void tipoEntradaDatos(DatosJugar d) 
  {
 	 datosEn=d;
  }
@@ -45,7 +46,7 @@ public class Juego {
 	 return barcos.size();
  }
   
-  public void inicioPartida(Jugador j1, Jugador j2) //metodo solo en modo manual, no mock.
+  public void inicioPartida(Jugador j1, Jugador j2) //metodo solo ejecutado en modo manual, no mock.
   {
 	  
 	  System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j1.getNombre()+".\n");
