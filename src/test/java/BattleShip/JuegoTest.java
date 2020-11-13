@@ -22,11 +22,11 @@ public class JuegoTest {
 	    	
 	    	MockDatosJugar mck = new MockDatosJugar();
 	    	
-	    	mck.entradasTeclado(1); //entrada de barco del usuario (j1)
+	    	mck.entradasTeclado(1); //Entrada de barco del usuario (j1)
 	    	juego.tipoEntradaDatos(mck);
-	    	juego.colocarBarcos(); // esto lo hace automaticamente el mock.
-	    	mck.entradasTeclado(2); // hay que poner la opcion 2 para que coja los datos de disparar.
-	    	juego.jugar(j1); // aqui le pasamos el jugador que juega, pero las entradas las mete el mock.
+	    	juego.colocarBarcos(); // Esto lo hace automaticamente el mock.
+	    	mck.entradasTeclado(2); // Hay que poner la opcion 2 para que coja los datos de disparar.
+	    	juego.jugar(j1); // Aqui le pasamos el jugador que juega, pero las entradas las mete el mock.
 	    	
 	    	int hun= j1.numeroHundidos();
 	    	int toc =j1.numeroTocados();
@@ -50,8 +50,7 @@ public class JuegoTest {
 	    	
 	    }
 	    @Test
-	    public void inicioPartidaJuegoManual()  //este test solo se comprueba 
-	    //el metodo de inicio, al hacer una aprtida manualmente.
+	    public void inicioPartidaJuegoManual()  //Este test solo comprueba el metodo de inicio, al hacer una partida manualmente.
 	    {
 	    	
 	    	
@@ -66,6 +65,7 @@ public class JuegoTest {
 		@Test
 		public void ConstructorTest() {
 
+			//Test encargado de comprobar la correcta construccion de la clase Barco y su constructor
 			int res1= juego.comprobarListaBarcos();
 			assertEquals(res1,8);		
 			

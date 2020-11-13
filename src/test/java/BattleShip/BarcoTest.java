@@ -22,11 +22,11 @@ public class BarcoTest {
 		String tip = bar.getTipo();// lo mismo pasa con el tipo, ya esta establecido por el juego,
 		assertEquals(tip,"Prueba"); // pero lo comprobamos.
 
-		int toc = bar.numeroTocado();  //inicio barco no esta tocado
+		int toc = bar.numeroTocado();  //Inicio barco no esta tocado
 		assertEquals(toc,0);
 		
 		
-		bar.agregarCoordenadas(0,1); //metemos las coordenadas donde esta el barco en el tablero
+		bar.agregarCoordenadas(0,1); //Metemos las coordenadas donde esta el barco en el tablero
 		
 		
 		//comprovacion que no se puede entrar la misma coordenada. 
@@ -49,7 +49,7 @@ public class BarcoTest {
 		bar.agregarCoordenadas(0,3);
 		bar.agregarCoordenadas(0,4);
 		
-		//comprobamos si estan todas las coordenadas
+		//Comprobamos si estan todas las coordenadas
 		assertTrue(bar.comprobarCoordenadas(0, 2)==true);
 		bar.sumarTocado();
 		assertTrue(bar.comprobarCoordenadas(0, 3)==true);
@@ -60,20 +60,20 @@ public class BarcoTest {
 		
 		int toc3 = bar.numeroTocado(); 
 		System.out.println(toc3);
-		assertEquals(toc3,4); // comprovamos que se ha tocado las 4 coordenadas del barco i sumamos 4 tocados
+		assertEquals(toc3,4); // Comprovamos que se ha tocado las 4 coordenadas del barco i sumamos 4 tocados
 		
-		// por lo tanto esta hundido
+		// Por lo tanto esta hundido
 		assertTrue(bar.estaHundido()==true); // por lo tanto esta hundido
 		assertTrue(bar.comprobarCoordenadas(0, 4)==false); // volvemos a comprobar una coordenada igual del mismo barco
 		assertTrue(bar.estaHundido()==true); // comprovamos que continua hundido
 		int toc4 = bar.numeroTocado(); 
 		System.out.println(toc4);
-		assertEquals(toc4,4); //  no suma mas tocados
+		assertEquals(toc4,4); //  No suma mas tocados
 		
 		bar.agregarCoordenadas(0,5); //error limite de coordenadas ( mostrado por si a caso en pantalla).
 		//independiente del numero de las coordenadas, es el hecho de a�adir m�s.
 		
-		//pintamos coordenadas entradas del barco
+		//Pintamos coordenadas entradas del barco
 		
 		
 		bar.pintarCoordenadas();

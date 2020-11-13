@@ -14,9 +14,9 @@ public class MockDatosJugar implements DatosJugar{
 	public void entradasTeclado(int tipo) 
 	{
 		//Los valores decimales no se pueden comprobar con el mock, pero se han comprobado manualmente.
-		//igual que cualquier valor no idoneo para el tipo de dato.
+		//Igual que cualquier valor no idoneo para el tipo de dato.
 		
-	  if(tipo==1) //coordenadas de introduccion de barco j1
+	  if(tipo==1) //Coordenadas de introduccion de barco j1
 	  {
 		    coordX.add(0);coordY.add(0);posi.add("V");
 			coordX.add(1);coordY.add(1);posi.add("H");
@@ -27,47 +27,47 @@ public class MockDatosJugar implements DatosJugar{
 			coordX.add(7);coordY.add(0);posi.add("V");
 			coordX.add(7);coordY.add(7);posi.add("V");
 	  }
-	  if(tipo==2) //coordenadas de disparar a barcos j2
+	  if(tipo==2) //Coordenadas de disparar a barcos j2
 	  {
-		  coordDisparoX.add(0);coordDisparoY.add(0); //tocado
-		  coordDisparoX.add(2);coordDisparoY.add(2); //agua
-		  coordDisparoX.add(7);coordDisparoY.add(0); //tocado y hundido
-		  coordDisparoX.add(8);coordDisparoY.add(8); //error
-		  coordDisparoX.add(5);coordDisparoY.add(6); //tocado
-		  coordDisparoX.add(0);coordDisparoY.add(0); // ya disparada!
-		  coordDisparoX.add(1);coordDisparoY.add(3); //agua
-		  coordDisparoX.add(2);coordDisparoY.add(3);
-		  coordDisparoX.add(3);coordDisparoY.add(3);
-		  coordDisparoX.add(4);coordDisparoY.add(3); //agua
+		  coordDisparoX.add(0);coordDisparoY.add(0); //TOCADO
+		  coordDisparoX.add(2);coordDisparoY.add(2); //AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(0); //TOCADO Y HUNDIDO
+		  coordDisparoX.add(8);coordDisparoY.add(8); //ERROR
+		  coordDisparoX.add(5);coordDisparoY.add(6); //TOCADO
+		  coordDisparoX.add(0);coordDisparoY.add(0); //YA DISPARADA!
+		  coordDisparoX.add(1);coordDisparoY.add(3); //AGUA
+		  coordDisparoX.add(2);coordDisparoY.add(3); //AGUA
+		  coordDisparoX.add(3);coordDisparoY.add(3); //AGUA
+		  coordDisparoX.add(4);coordDisparoY.add(3); //AGUA
+		  coordDisparoX.add(2);coordDisparoY.add(5); 
+		  coordDisparoX.add(0);coordDisparoY.add(7); //TOCADO
+		  coordDisparoX.add(0);coordDisparoY.add(6); //TOCADO Y HUNDIDO
+		  coordDisparoX.add(-1);coordDisparoY.add(-1); //ERROR
+		  coordDisparoX.add(0);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(1);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(2);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(3);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(4);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(5);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(6);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(4); //AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(7); //TOCADO Y HUNDIDO
 		  coordDisparoX.add(2);coordDisparoY.add(5);
-		  coordDisparoX.add(0);coordDisparoY.add(7); //tocado
-		  coordDisparoX.add(0);coordDisparoY.add(6); //tocado y hundido
-		  coordDisparoX.add(-1);coordDisparoY.add(-1); //error
-		  coordDisparoX.add(0);coordDisparoY.add(4); //agua
-		  coordDisparoX.add(1);coordDisparoY.add(4);
-		  coordDisparoX.add(2);coordDisparoY.add(4);
-		  coordDisparoX.add(3);coordDisparoY.add(4);
-		  coordDisparoX.add(4);coordDisparoY.add(4);
-		  coordDisparoX.add(5);coordDisparoY.add(4);
-		  coordDisparoX.add(6);coordDisparoY.add(4);
-		  coordDisparoX.add(7);coordDisparoY.add(4); //agua
-		  coordDisparoX.add(7);coordDisparoY.add(7); //tocado y hundido
+		  coordDisparoX.add(6);coordDisparoY.add(3); //TOCADO
+		  coordDisparoX.add(5);coordDisparoY.add(3); //TOCADO Y HUNDIDO
 		  coordDisparoX.add(2);coordDisparoY.add(5);
-		  coordDisparoX.add(6);coordDisparoY.add(3); //tocado
-		  coordDisparoX.add(5);coordDisparoY.add(3); //tocado y hundido
-		  coordDisparoX.add(2);coordDisparoY.add(5);
-		  coordDisparoX.add(100);coordDisparoY.add(1122); //error
-		  coordDisparoX.add(3);coordDisparoY.add(2); //agua
-		  coordDisparoX.add(4);coordDisparoY.add(2);
-		  coordDisparoX.add(5);coordDisparoY.add(2);
-		  coordDisparoX.add(6);coordDisparoY.add(2);
-		  coordDisparoX.add(7);coordDisparoY.add(2);
-		  coordDisparoX.add(3);coordDisparoY.add(5);
-		  coordDisparoX.add(7);coordDisparoY.add(0); //ya disparada y hundida
-		  coordDisparoX.add(5);coordDisparoY.add(5);
+		  coordDisparoX.add(100);coordDisparoY.add(1122); //ERROR
+		  coordDisparoX.add(3);coordDisparoY.add(2); //AGUA
+		  coordDisparoX.add(4);coordDisparoY.add(2); //AGUA
+		  coordDisparoX.add(5);coordDisparoY.add(2); //AGUA
+		  coordDisparoX.add(6);coordDisparoY.add(2); //AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(2); //AGUA
+		  coordDisparoX.add(3);coordDisparoY.add(5); //AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(0); //YA DISPARADA Y HUNDIDA
+		  coordDisparoX.add(5);coordDisparoY.add(5); 
 		  coordDisparoX.add(6);coordDisparoY.add(5);
-		  coordDisparoX.add(7);coordDisparoY.add(5); //agua
-		  coordDisparoX.add(2);coordDisparoY.add(5); //una de mas que no se debe hacer.
+		  coordDisparoX.add(7);coordDisparoY.add(5); //AGUA
+		  coordDisparoX.add(2);coordDisparoY.add(5); //UNA TIRADA DE MAS QUE NO DEBE INFLUIR
 		  
 		  //jug1 9 tocados y 4 hunidoos los 2 de 2, i los 2 de 1.
 		  
@@ -78,10 +78,10 @@ public class MockDatosJugar implements DatosJugar{
 	  if(tipo==3) //coordenadas de introduccion de barco j2
 
 	  {
-		    coordX.add(-3);coordY.add(-2);posi.add("V"); //error
-			coordX.add(12120);coordY.add(12343);posi.add("H"); //error
-			coordX.add(12120);coordY.add(12343);posi.add("X"); //error
-			coordX.add(12120);coordY.add(12343);posi.add("J"); //error
+		    coordX.add(-3);coordY.add(-2);posi.add("V"); //ERROR
+			coordX.add(12120);coordY.add(12343);posi.add("H"); //ERROR
+			coordX.add(12120);coordY.add(12343);posi.add("X"); //ERROR
+			coordX.add(12120);coordY.add(12343);posi.add("J"); //ERROR
 			coordX.add(0);coordY.add(0);posi.add("V"); //ok medida4
 			coordX.add(0);coordY.add(2);posi.add("V"); //error barco en mismo sitio que uno existente
 			coordX.add(1);coordY.add(1);posi.add("H"); //ok medida4
@@ -99,48 +99,48 @@ public class MockDatosJugar implements DatosJugar{
 	  if(tipo==4) 
 	  {
 		  
-		  coordDisparoX.add(0);coordDisparoY.add(0); //tocado
-		  coordDisparoX.add(2);coordDisparoY.add(2);//agua
-		  coordDisparoX.add(7);coordDisparoY.add(0); //tocado y hundido
+		  coordDisparoX.add(0);coordDisparoY.add(0); //TOCADO
+		  coordDisparoX.add(2);coordDisparoY.add(2);//AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(0); //TOCADO Y HUNDIDO
 		  coordDisparoX.add(8);coordDisparoY.add(8); //error
-		  coordDisparoX.add(5);coordDisparoY.add(6); //tocado
-		  coordDisparoX.add(0);coordDisparoY.add(0);// ya disparada!
-		  coordDisparoX.add(1);coordDisparoY.add(3);//agua
+		  coordDisparoX.add(5);coordDisparoY.add(6); //TOCADO
+		  coordDisparoX.add(0);coordDisparoY.add(0);// YA DISPARADA!
+		  coordDisparoX.add(1);coordDisparoY.add(3);//AGUA
 		  coordDisparoX.add(2);coordDisparoY.add(3);
 		  coordDisparoX.add(3);coordDisparoY.add(3);
-		  coordDisparoX.add(4);coordDisparoY.add(3);//agua
+		  coordDisparoX.add(4);coordDisparoY.add(3);//AGUA
 		  coordDisparoX.add(2);coordDisparoY.add(5);
-		  coordDisparoX.add(0);coordDisparoY.add(7);//tocado
-		  coordDisparoX.add(0);coordDisparoY.add(6);//tocado y hundido
-		  coordDisparoX.add(-1);coordDisparoY.add(-1); //error
-		  coordDisparoX.add(2);coordDisparoY.add(6); //tocado
+		  coordDisparoX.add(0);coordDisparoY.add(7);//TOCADO
+		  coordDisparoX.add(0);coordDisparoY.add(6);//TOCADOY HUNDIDO
+		  coordDisparoX.add(-1);coordDisparoY.add(-1); //ERROR
+		  coordDisparoX.add(2);coordDisparoY.add(6); //TOCADO
 		  coordDisparoX.add(1);coordDisparoY.add(4);
 		  coordDisparoX.add(2);coordDisparoY.add(4);
 		  coordDisparoX.add(3);coordDisparoY.add(4);
 		  coordDisparoX.add(4);coordDisparoY.add(4);
 		  coordDisparoX.add(5);coordDisparoY.add(4);
 		  coordDisparoX.add(6);coordDisparoY.add(4);
-		  coordDisparoX.add(7);coordDisparoY.add(4);//agua
-		  coordDisparoX.add(7);coordDisparoY.add(7); //tocado y hundido
+		  coordDisparoX.add(7);coordDisparoY.add(4);//AGUA
+		  coordDisparoX.add(7);coordDisparoY.add(7); //TOCADO Y HUNDIDO
 		  coordDisparoX.add(2);coordDisparoY.add(5);
-		  coordDisparoX.add(6);coordDisparoY.add(3); //tocado
-		  coordDisparoX.add(5);coordDisparoY.add(3); //tocado y hundido
+		  coordDisparoX.add(6);coordDisparoY.add(3); //TOCADO
+		  coordDisparoX.add(5);coordDisparoY.add(3); //TOCADO Y HUNDIDO
 		  coordDisparoX.add(2);coordDisparoY.add(5);
-		  coordDisparoX.add(100);coordDisparoY.add(1122); //error
-		  coordDisparoX.add(3);coordDisparoY.add(2);//agua
+		  coordDisparoX.add(100);coordDisparoY.add(1122); //ERROR
+		  coordDisparoX.add(3);coordDisparoY.add(2);//AGUA
 		  coordDisparoX.add(4);coordDisparoY.add(2);
 		  coordDisparoX.add(5);coordDisparoY.add(2);
 		  coordDisparoX.add(6);coordDisparoY.add(2);
 		  coordDisparoX.add(7);coordDisparoY.add(2);
 		  coordDisparoX.add(3);coordDisparoY.add(5);
-		  coordDisparoX.add(7);coordDisparoY.add(0); //ya disparada y hundida
+		  coordDisparoX.add(7);coordDisparoY.add(0); //YA DISPARADA Y HUNDIDA
 		  coordDisparoX.add(5);coordDisparoY.add(5);
 		  coordDisparoX.add(6);coordDisparoY.add(5);
-		  coordDisparoX.add(7);coordDisparoY.add(5); //agua
-		  coordDisparoX.add(2);coordDisparoY.add(5); //una de mas que no se debe hacer.
+		  coordDisparoX.add(7);coordDisparoY.add(5); //AGUA
+		  coordDisparoX.add(2);coordDisparoY.add(5); //UNA TIRADA DE MAS QUE NO DEBE INFLUIR
 
 		  
-		  //j 2 10 tocados 4 hundidos = GANADOR.
+		  //j2 10 tocados 4 hundidos = GANADOR.
 		  
 	  }
 	  

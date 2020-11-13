@@ -74,7 +74,7 @@ public class Inicio {
 						break;
 					case 3:
 						salir = true;
-					System.out.println("Gracias por Jugar!");
+					System.out.println("GRACIAS POR JUGAR!");
 						break;
 					default:
 						System.out.println("Debes introducir un numero del 1 al 3.");

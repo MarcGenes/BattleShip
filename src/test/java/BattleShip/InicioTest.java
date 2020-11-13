@@ -10,13 +10,14 @@ public class InicioTest {
 	{
 		Inicio ini = new Inicio();
 		
+		//MOCK UTILIZADO PARA INCIAR EL JUEGO EN MODO REGLAMENTO Y SALIR
 		MockDatosInicio mckI = new MockDatosInicio();
     	
-		mckI.datosMenu(1); //entrada de barco del usuario (j1)
+		//OPCION 1 REGLAMENTO Y SALIR, OPCION 2 JUGAR
+		mckI.datosMenu(1); 
 		ini.tipoDatos(mckI);
 		ini.main(null);
- 
-        Inicio ini2 = new Inicio();
+
 		
 	}
 

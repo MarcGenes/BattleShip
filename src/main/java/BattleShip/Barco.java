@@ -13,6 +13,7 @@ public class Barco {
 	
 	public Barco(int med, String tip) 
 	{
+		//Constructor de la clase Barco inicializando los atributos
 		medida= med;
 		tipo=tip;
 		hundido=false;
@@ -25,7 +26,7 @@ public class Barco {
 	
 	public void agregarCoordenadas(int x, int y)
 	{
-
+		//Metodo encargado de agregar las casillas X e Y que ocupa el Barco
 			String sA = String.valueOf(x);
 			String sB = String.valueOf(y);
 	
@@ -36,21 +37,24 @@ public class Barco {
 	
 	public boolean estaHundido() 
 	{
+		//Nos retorna si el barco se encuentra hundido o no
 		return 	hundido;
 	}
 	
-	public int numeroTocado() //metodo de test
+	public int numeroTocado() //Metodo de test
 	{
+		//Nos retorna el numero de veces que el barco ha sido tocado
 		return tocado;
 	}
 	
 	public void sumarTocado() 
 	{	
+		//Metodo encargado de incrementar las veces que ha sido tocado 
 		tocado++;
 		if(tocado==medida) {hundido=true;}
 	}
 	
-	public boolean comprobarCoordenadas(int x, int y) // comprobamos si existe coordenada, y si es asi tocamos el barco!
+	public boolean comprobarCoordenadas(int x, int y) // Comprobamos si existe coordenada, y si es asi tocamos el barco!
 	{
 		String sA = String.valueOf(x);
 		String sB = String.valueOf(y);
@@ -77,6 +81,7 @@ public class Barco {
 	
 	public void pintarCoordenadas() 
 	{
+		//Metodo que muestra las coordenadas que ocupa el barco
 		for(int i =0; i<coordenadas.size();i++) 
 		{
 			System.out.print(coordenadas.get(i));
@@ -88,10 +93,12 @@ public class Barco {
 	
 
 	public int getMedida() {
+		//Retorna las casillas que ocupa el barco
 		return medida;
 	}
 
 	public String getTipo() {
+		//Retorna el tipo de barco 
 		return tipo;
 	}
 

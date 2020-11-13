@@ -41,12 +41,12 @@ public class Juego {
  {
 	 datosEn=d;
  }
- public int comprobarListaBarcos()  //metodo solo de test.
+ public int comprobarListaBarcos()  //Metodo solo de test.
  {
 	 return barcos.size();
  }
   
-  public void inicioPartida(Jugador j1, Jugador j2) //metodo solo ejecutado en modo manual, no mock.
+  public void inicioPartida(Jugador j1, Jugador j2) //Metodo solo ejecutado en modo manual, no mock.
   {
 	  
 	  System.out.println("TURNO DE COLOCAR BARCOS DEL JUGADOR: "+j1.getNombre()+".\n");
@@ -66,7 +66,7 @@ public class Juego {
 	  
 	  
   }
-  public void colocarBarcos() //falta test de esto
+  public void colocarBarcos() 
   {
 	  int numB = 0;
 	  boolean barcoOK = true;
@@ -93,7 +93,7 @@ public class Juego {
 		  if(barcoOK =true) {
 		   barcoOK =tab.addBarco(x, y, pos, barcos.get(numB).getMedida(),barcos.get(numB));
 		  }
-		  //guardar posicion en tablero de los barcos asi sabremos si estan tocados o hundidos
+		  //Guardar posicion en tablero de los barcos asi sabremos si estan tocados o hundidos
 		  
 		  if(barcoOK == false){
 			 System.out.println("Las coordenadas o la posicion del barco incorrectas, sale de los limites del Tablero o posicion ocupada");
@@ -151,7 +151,7 @@ public class Juego {
 				  boolean encontrado = false;
 				  if(tabDisparos.valorPosicion(x, y)==AGUA) {	
 					  while(cont< barcos.size() && encontrado == false) 
-						  // por cada barco miramos si tienen esas coordenadas
+						  // Por cada barco miramos si tienen esas coordenadas
 					  {
 						  
 							  encontrado = barcos.get(cont).comprobarCoordenadas(x,y);
