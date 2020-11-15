@@ -13,12 +13,24 @@ public class JuegoTest {
 	    public void JuegoCompletoTestMock() 
 	    {
 	    	
-	 
+	    
 	    	Jugador j1 = new Jugador("j1");
 	    	Jugador j2 = new Jugador("j2");
 	    	
+	       //Mismo test que el inicio test	
+	       // puesto aqui para ejecutarlo todo
 	    	
+	    	Inicio ini = new Inicio();
+			
+			//MOCK UTILIZADO PARA INCIAR EL JUEGO EN MODO REGLAMENTO Y SALIR
+			MockDatosInicio mckI = new MockDatosInicio();
 	    	
+			//OPCION 1 REGLAMENTO Y SALIR, OPCION 2 JUGAR
+			mckI.datosMenu(1); 
+			ini.tipoDatos(mckI);
+			ini.main(null);
+
+	    	//test juego
 	    	
 	    	MockDatosJugar mck = new MockDatosJugar();
 	    	
