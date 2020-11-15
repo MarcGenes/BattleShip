@@ -12,7 +12,9 @@ public class MockDatosInicio implements DatosInicio {
 	public void datosMenu(int op) 
 	{
 		if(op==1) {
-		datosMenu.add(1);datosMenu.add(3);
+		datosMenu.add(-1);datosMenu.add(4);//valores limite
+		datosMenu.add(-33);datosMenu.add(44);//valores bajos y altos
+		datosMenu.add(1);datosMenu.add(3); // valores forntera -OK
 		}else {
 		   datosMenu.add(2);
 		}
