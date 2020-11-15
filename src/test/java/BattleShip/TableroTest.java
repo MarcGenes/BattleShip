@@ -136,7 +136,7 @@ public class TableroTest {
 	public void testCasillaOcupada() // Este metodo solo se ejecuta para comprobar si poniendo un barco en una casilla libre
 	                                 //alguna casilla de su medida ocupa o no un barco puesto anteriormente.
 	                                 //en este metodo no se comprueba si la casilla introducida coincide o no. Se hace en el metodo valorPosicion();
-									// aqui nunca llegara  una X, o una Y  fuera de rango, ni una posicion o  medida erronia.                            
+									// aqui nunca llegaraï¿½ una X, o una Y  fuera de rango, ni una posicion o  medida erronia.                            
 	{
 		t1.llenarTableroAgua();
 		//Agregamos 3 barcos de diferentes medidas en posiciones libres.
@@ -152,6 +152,19 @@ public class TableroTest {
 	    assertTrue(t1.casillaOcupada(2, 5, "V", 3)==false); // Este barco no deberia coincidir con ninguno.
 	    
 	    assertTrue(t1.casillaOcupada(0, 7, "H", 3)==false); // Este barco tampoco deberia coincidir con ninguna.
+	    
+	    
+	    //LOOP TESTING
+	    System.out.println("LOOP TEST");
+	    t1.llenarTableroAgua();
+	    t1.addBarco(2,3,"H",4,b); //1
+	    t1.mostrarTablero();
+	    assertTrue(t1.casillaOcupada(2, 2, "V", 4)==true); // loop solo hace 1 vuelta de 4 //coincide la 2nda casilla
+	    assertTrue(t1.casillaOcupada(2, 1, "V", 4)==true); //loop solo hace 2 vueltas de 4 //coincide la 3era casilla
+	    assertTrue(t1.casillaOcupada(2, 0, "V", 4)==true); // loop solo hace 3 vueltas de 4 //coincide la 4rta casilla
+	    assertTrue(t1.casillaOcupada(7, 0, "V", 4)==false); //loop hace todas las vueltas ; //no coincide ninguna
+	    
+	    
 	}
 	
 	
