@@ -59,11 +59,12 @@ public class Tablero {
 		}
 	}
 	
-	public int valorPosicion(int x, int y){
+	public int valorPosicion(int x, int y)
+	{
 		return tab[y][x];
 	}
 	
-	//comprovacion de si alguna casilla de un barco coincide con alguna ocupada anteriormente.
+	//comprovacion de si alguna casilla de un barco coincide con alguna ocupada.
 	public boolean casillaOcupada(int x, int y, String pos, int medida){
 		boolean ocupada = false;
 	
